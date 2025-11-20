@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #fff;
+}
+
+header {
+  background: #222;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #f0c000;
+  text-decoration: none;
+}
+
+.hero {
+  background: #000;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #f0c000;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn.secondary {
+  background: #fff;
+  color: #000;
+}
+
+section {
+  padding: 2rem 1rem;
+  border-bottom: 1px solid #333;
+}
+
+footer {
+  background: #222;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
