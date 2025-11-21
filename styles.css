@@ -1,77 +1,84 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #111;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
   color: #fff;
-  
-  img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 8px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(255, 0, 100, 0.5);
-}
-
-header {
-  background: #222;
-  padding: 1rem;
-  text-align: center;
-}
-
-nav a {
-  margin: 0 1rem;
-  color: #f0c000;
-  text-decoration: none;
+  line-height: 1.6;
 }
 
 .hero {
-  background: #000;
+  position: relative;
   text-align: center;
-  padding: 3rem 1rem;
+  color: white;
 }
 
-.hero h2 {
-  font-size: 2rem;
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.6);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 10px #000;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
 .btn {
-  display: inline-block;
-  margin: 0.5rem;
+  background-color: #ff004f;
+  color: white;
   padding: 0.75rem 1.5rem;
-  background: #f0c000;
-  color: #000;
   text-decoration: none;
   border-radius: 5px;
+  font-weight: bold;
 }
 
-.btn.secondary {
-  background: #fff;
-  color: #000;
+.intro, .gallery, .services, footer {
+  padding: 2rem;
+  text-align: center;
 }
 
-section {
-  padding: 2rem 1rem;
-  border-bottom: 1px solid #333;
+.intro img, .services img {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.gallery .grid, .services .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery img, .services img {
+  width: 300px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover, .services img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 0, 100, 0.5);
 }
 
 footer {
-  background: #222;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  background-color: #222;
+  padding: 2rem;
+  font-size: 1rem;
 }
