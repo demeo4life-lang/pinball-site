@@ -82,3 +82,29 @@ footer {
   padding: 2rem;
   font-size: 1rem;
 }
+/* Floating Buttons */
+.back-to-top, .contact-float {
+  position: fixed;
+  right: 20px;
+  padding: 0.6rem 1rem;
+  background-color: #ff004f;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top {
+  bottom: 80px;
+}
+
+.contact-float {
+  bottom: 20px;
+}
+
+.back-to-top:hover, .contact-float:hover {
+  background-color: #ff3366;
+}
