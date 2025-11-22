@@ -108,3 +108,7 @@ footer {
 .back-to-top:hover, .contact-float:hover {
   background-color: #ff3366;
 }
+
+.back-to-top {
+  display: none; /* hidden until scroll triggers */
+}
