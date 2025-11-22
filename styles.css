@@ -139,10 +139,3 @@ footer {
 .navbar a:hover {
   color: #ff004f;
 }
-
-.shop-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-bottom: 4px solid #ff004f;
-}
