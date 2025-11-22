@@ -126,3 +126,10 @@ body {
   padding: 1rem;
   margin-top: 2rem;
 }
+
+.shop-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 4px solid #ff004f;
+}
