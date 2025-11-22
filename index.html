@@ -54,5 +54,21 @@
   <a href="#top" class="back-to-top">↑ Top</a>
   <a href="#contact" class="contact-float">📞 Contact</a>
   
+  <script>
+  // Show/hide Back to Top button on scroll
+  const backToTop = document.querySelector('.back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
+  
 </body>
 </html>
