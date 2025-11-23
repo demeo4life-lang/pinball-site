@@ -5,13 +5,15 @@ body {
   color: #fff;
 }
 
-.shop-navbar {
+.navbar {
   background-color: #000;
   padding: 1rem;
-  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.shop-navbar ul {
+.navbar ul {
   list-style: none;
   display: flex;
   justify-content: center;
@@ -20,10 +22,15 @@ body {
   padding: 0;
 }
 
-.shop-navbar a {
+.navbar a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ff004f;
 }
 
 .shop-navbar a:hover {
