@@ -31,23 +31,6 @@
 
   <section class="services">
     <h2>OUR COLLECTION</h2>
-	<section class="services section-style">
-  <div class="grid-style">
-    <div class="item-style">
-      <div class="image-box">
-        <img src="images/diy-arcade.png" alt="DIY Arcade" />
-        <div class="caption" contenteditable="true">DIY Arcade</div>
-      </div>
-    </div>
-    <div class="item-style">
-      <div class="image-box">
-        <img src="images/arcade-console.png" alt="Arcade Consoles" />
-        <div class="caption" contenteditable="true">Arcade Consoles</div>
-      </div>
-    </div>
-    <!-- Add more items as needed -->
-  </div>
-</section>
     <div class="grid">
 	  <img src="images/jukebox-20250304.png" alt="Angelina Digital Jukebox" />
       <img src="images/pinball-max.png" alt="Max pinball service" />
@@ -81,18 +64,6 @@
       backToTop.style.display = 'block';
     } else {
       backToTop.style.display = 'none';
-    }
-	
-	<script>
-  document.querySelectorAll('.caption').forEach(caption => {
-    caption.addEventListener('input', () => {
-      localStorage.setItem(caption.previousElementSibling.alt, caption.textContent);
-    });
-
-    // Load saved captions on page load
-    const saved = localStorage.getItem(caption.previousElementSibling.alt);
-    if (saved) {
-      caption.textContent = saved;
     }
   });
 </script>
