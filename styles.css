@@ -139,3 +139,11 @@ navbar a {
 .navbar a:hover {
   color: #ff004f;
 }
+
+.section-style {
+  background-color: #222;
+  padding: 2rem;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+}
