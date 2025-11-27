@@ -66,13 +66,13 @@ body {
   margin-top: 1rem;
 }
 
-.gallery img, .services img {
+intro img, .gallery img, .services img {
   width: 300px;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
-.gallery img:hover, .services img:hover {
+intro img, .gallery img:hover, .services img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(255, 0, 100, 0.5);
 }
