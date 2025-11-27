@@ -14,7 +14,7 @@ body {
 
 .hero-img {
   width: 100%;
-  height: auto;
+  height: 50%;
   display: block;
   filter: brightness(0.6);
 }
