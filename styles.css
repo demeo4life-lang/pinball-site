@@ -145,3 +145,41 @@ navbar a {
 .navbar a:hover {
   color: #ff004f;
 }
+
+.image-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-box:hover img {
+  transform: scale(1.05);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.image-box:hover .caption {
+  background: rgba(255, 0, 79, 0.8); /* Optional: pink highlight on hover */
+}
+
+.caption[contenteditable="true"] {
+  cursor: text;
+  outline: none;
+}
