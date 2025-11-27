@@ -58,7 +58,7 @@ body {
   border-radius: 8px;
 }
 
-.intro, gallery .grid, .services .grid {
+.intro .grid, gallery .grid, .services .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -72,7 +72,7 @@ intro img, .gallery img, .services img {
   transition: transform 0.3s ease;
 }
 
-intro img, .gallery img:hover, .services img:hover {
+intro img:hover, .gallery img:hover, .services img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(255, 0, 100, 0.5);
 }
