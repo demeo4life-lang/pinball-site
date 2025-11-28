@@ -9,7 +9,7 @@ body {
   background-color: #000;
   color: #fff;
   line-height: 1.6;
-  padding-top: 70px; /* Prevent content overlap with fixed navbar */
+  padding-top: 70px;
 }
 
 /* Navbar */
@@ -109,8 +109,6 @@ body {
   border-radius: 10px;
   max-width: 90%;
   text-align: center;
-
-  /* Fade-in animation */
   opacity: 0;
   animation: fadeInHero 1.5s ease forwards;
 }
@@ -128,12 +126,14 @@ body {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
 }
 .btn:hover {
   background-color: #ff3399;
 }
 
-/* Fade-in Keyframes */
+/* Hero Animation */
 @keyframes fadeInHero {
   from {
     opacity: 0;
@@ -229,6 +229,9 @@ footer {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
+  .nav-links {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -241,5 +244,8 @@ footer {
     font-size: 0.9rem;
     bottom: 1rem;
     right: 0.5rem;
+  }
+  .hero-text {
+    padding: 1.5rem;
   }
 }
