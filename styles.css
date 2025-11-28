@@ -162,3 +162,17 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   .image-box img { height: 160px; }
   .nav-links a { font-size: 0.95rem; }
 }
+
+/* Holiday Card Section */
+.holiday-card {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #111;
+}
+.image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+  pointer-events: none;
+}
