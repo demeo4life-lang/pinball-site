@@ -31,14 +31,14 @@
   <section class="services section-style" id="services">
     <h2>OUR COLLECTION</h2>
     <div class="grid-style">
-      <div class="item-style"><div class="image-box"><img src="images/jukebox-20250304.png" alt="Angelina Digital Jukebox" /><div class="caption" contenteditable="true">Angelina Digital Jukebox</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/pinball-max.png" alt="Max pinball service" /><div class="caption" contenteditable="true">Max pinball service</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/pinball-monster.png" alt="Monster Pinball Machine" /><div class="caption" contenteditable="true">Monster Pinball Machine</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/billiard-pool.png" alt="Classic Slimline Pool Table" /><div class="caption" contenteditable="true">Classic Slimline Pool Table</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/boxer-20251127.png" alt="Commercial Boxing machine" /><div class="caption" contenteditable="true">Commercial Boxing machine</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/hockey-20251127.png" alt="Strikeworth Pro Aluminium Air Hockey" /><div class="caption" contenteditable="true">Strikeworth Pro Aluminium Air Hockey</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption" contenteditable="true">Pierce 12ft Shuffleboard Table</div></div></div>
-      <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption" contenteditable="true">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/jukebox-20250304.png" alt="Angelina Digital Jukebox" /><div class="caption">Angelina Digital Jukebox</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/pinball-max.png" alt="Max pinball service" /><div class="caption">Max pinball service</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/pinball-monster.png" alt="Monster Pinball Machine" /><div class="caption">Monster Pinball Machine</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/billiard-pool.png" alt="Classic Slimline Pool Table" /><div class="caption">Classic Slimline Pool Table</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/boxer-20251127.png" alt="Commercial Boxing machine" /><div class="caption">Commercial Boxing machine</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/hockey-20251127.png" alt="Strikeworth Pro Aluminium Air Hockey" /><div class="caption">Strikeworth Pro Aluminium Air Hockey</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption">Pierce 12ft Shuffleboard Table</div></div></div>
+      <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
     </div>
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
@@ -49,25 +49,16 @@
     <p>📧 info@pinballtradingco.com.au</p>
     <p>📍 Sydney – Central Coast – Newcastle – Hunter Valley</p>
   </footer>
-
+  
   <!-- Floating Buttons -->
   <a href="#top" class="back-to-top">↑ Top</a>
   <a href="#contact" class="contact-float">📞 Contact</a>
-
+  
   <script>
     // Show/hide Back to Top button on scroll
     const backToTop = document.querySelector('.back-to-top');
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
-    // Editable captions with localStorage
-    document.querySelectorAll('.caption').forEach(caption => {
-      caption.addEventListener('input', () => {
-        localStorage.setItem(caption.previousElementSibling.alt, caption.textContent);
-      });
-      const saved = localStorage.getItem(caption.previousElementSibling.alt);
-      if (saved) caption.textContent = saved;
     });
   </script>
 
