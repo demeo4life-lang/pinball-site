@@ -181,9 +181,14 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 .full-span {
   grid-column: 1 / -1;
 }
-.full-span img {
+
+/* Holiday image spacing and sizing */
+.holiday-gap {
+  margin-top: 2rem;
+}
+.holiday-gap img {
   width: 100%;
-  height: auto;
+  height: auto; /* restores natural image height */
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
   pointer-events: none;
