@@ -3,7 +3,7 @@
 <head>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pinball Trading Co</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -12,9 +12,10 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Pinball Co</div>
-    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <ul class="nav-links">
-      <li><a href="#">About</a></li>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -27,10 +28,16 @@
     <img src="images/pinball-hero.png" alt="Pinball hero banner" class="hero-img" />
     <div class="hero-text">
       <h1>Pinball Trading Co</h1>
-      <p>Your #1 source for pinball machines across Sydney, Newcastle & Central Coast</p>
+      <p>Shop Pinball Trading Co for pinball machines across Sydney, Newcastle & Central Coast</p>
       <a href="#services" class="btn">OUR COLLECTION</a>
     </div>
   </header>
+
+  <!-- About (optional anchor target) -->
+  <section id="about" class="section-style">
+    <h2>About</h2>
+    <p>We specialize in pinball machines, arcade cabinets, and venue entertainment setups.</p>
+  </section>
 
   <!-- Services -->
   <section class="services section-style" id="services">
@@ -49,7 +56,7 @@
   </section>
 
   <!-- Footer -->
-  <footer id="contact">
+  <footer id="contact" class="section-style">
     <h2>Contact Us</h2>
     <p>📞 0407 458 929</p>
     <p>📧 info@pinballtradingco.com.au</p>
@@ -57,8 +64,8 @@
   </footer>
   
   <!-- Floating Buttons -->
-  <a href="#top" class="back-to-top">↑ Top</a>
-  <a href="#contact" class="contact-float">📞 Contact</a>
+  <a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
+  <a href="#contact" class="contact-float" aria-label="Contact">📞 Contact</a>
   
   <!-- Scripts -->
   <script>
@@ -67,22 +74,35 @@
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    window.addEventListener('scroll', () => {
+    // Scroll effects
+    function onScroll() {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
       navbar.classList.toggle('scrolled', window.scrollY > 50);
 
       // Fade-in grid items
       document.querySelectorAll('.item-style').forEach(item => {
         const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          item.classList.add('fade-in');
-        }
+        if (rect.top < window.innerHeight - 60) item.classList.add('fade-in');
       });
-    });
+    }
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll);
 
     // Hamburger menu toggle
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+      const isOpen = navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      // prevent body from jumping when mobile menu opens
+      document.body.classList.toggle('no-scroll', isOpen);
+    });
+
+    // Close mobile menu on link click
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+      }
     });
   </script>
 
