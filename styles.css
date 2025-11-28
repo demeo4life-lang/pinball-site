@@ -176,3 +176,15 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
   pointer-events: none;
 }
+
+/* Full-span grid item */
+.full-span {
+  grid-column: 1 / -1;
+}
+.full-span img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+  pointer-events: none;
+}
