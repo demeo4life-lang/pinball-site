@@ -9,8 +9,11 @@
 </head>
 <body id="top">
 
+  <!-- Navbar -->
   <nav class="navbar">
-    <ul>
+    <div class="logo">Pinball Co</div>
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <ul class="nav-links">
       <li><a href="#">About</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#services">Services</a></li>
@@ -19,6 +22,7 @@
     </ul>
   </nav>
 
+  <!-- Hero -->
   <header class="hero">
     <img src="images/pinball-hero.png" alt="Pinball hero banner" class="hero-img" />
     <div class="hero-text">
@@ -28,6 +32,7 @@
     </div>
   </header>
 
+  <!-- Services -->
   <section class="services section-style" id="services">
     <h2>OUR COLLECTION</h2>
     <div class="grid-style">
@@ -43,6 +48,7 @@
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
 
+  <!-- Footer -->
   <footer id="contact">
     <h2>Contact Us</h2>
     <p>📞 0407 458 929</p>
@@ -54,11 +60,26 @@
   <a href="#top" class="back-to-top">↑ Top</a>
   <a href="#contact" class="contact-float">📞 Contact</a>
   
+  <!-- Scripts -->
   <script>
-    // Show/hide Back to Top button on scroll
+    // Back to Top button + Navbar scroll effect
     const backToTop = document.querySelector('.back-to-top');
+    const navbar = document.querySelector('.navbar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Hamburger menu toggle
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
   </script>
 
