@@ -160,6 +160,10 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   .hero-text p { font-size: 0.95rem; }
   .grid-style { gap: 1rem; }
   .image-box img { height: 160px; }
+  /* Override product image height for holiday card */
+.full-span .image-box img {
+  height: auto !important;
+}
   .nav-links a { font-size: 0.95rem; }
 }
 
@@ -186,9 +190,10 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 .holiday-gap {
   margin-top: 2rem;
 }
+
 .holiday-gap img {
   width: 100%;
-  height: auto; /* restores natural image height */
+  height: auto; /* restores natural height */
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
   pointer-events: none;
