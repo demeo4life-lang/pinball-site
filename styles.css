@@ -154,3 +154,27 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
   pointer-events: none;
 }
+
+/* Holiday image spacing and sizing */
+.holiday-gap {
+  margin-top: 2rem;
+}
+
+/* Span 4 columns on desktop, full width on mobile */
+.four-span {
+  grid-column: span 4;
+}
+@media (max-width: 768px) {
+  .four-span {
+    grid-column: 1 / -1;
+  }
+}
+
+.four-span img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+  pointer-events: none;
+}
