@@ -147,8 +147,8 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 .full-span { grid-column: 1 / -1; }
 .holiday-gap { margin-top: 2rem; }
 .holiday-gap img {
-  width: 100%;
-  max-height: 300px; /* limit holiday card height */
+  width: 400%;
+  max-height: 400px; /* limit holiday card height */
   object-fit: contain; /* keep proportions without cropping */
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
