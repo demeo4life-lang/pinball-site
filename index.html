@@ -52,13 +52,11 @@
       <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption">Pierce 12ft Shuffleboard Table</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
 
-      <!-- Holiday Greeting Image (Spans 4 Columns on desktop, full width on mobile) -->
+      <!-- Holiday Greeting Image -->
       <div class="item-style holiday-gap four-span">
         <div class="image-box holiday-card">
           <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
           <div class="caption festive-caption">❄️ Happy Holidays from Pinball Trading Co 🎄</div>
-
-          <!-- Snowflake overlay -->
           <div class="snowflakes" aria-hidden="true">
             <div class="snowflake">❅</div>
             <div class="snowflake">❆</div>
@@ -70,7 +68,6 @@
         </div>
       </div>
     </div>
-
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
 
@@ -96,8 +93,6 @@
     function onScroll() {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
       navbar.classList.toggle('scrolled', window.scrollY > 50);
-
-      // Fade-in grid items
       document.querySelectorAll('.item-style').forEach(item => {
         const rect = item.getBoundingClientRect();
         if (rect.top < window.innerHeight - 60) item.classList.add('fade-in');
@@ -106,14 +101,12 @@
     window.addEventListener('scroll', onScroll);
     window.addEventListener('load', onScroll);
 
-    // Hamburger menu toggle
     menuToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('active');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
       document.body.classList.toggle('no-scroll', isOpen);
     });
 
-    // Close mobile menu on link click
     navLinks.addEventListener('click', (e) => {
       if (e.target.tagName === 'A' && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');

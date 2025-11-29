@@ -18,8 +18,6 @@ body {
   line-height: 1.6;
   padding-top: var(--navbar-height); /* prevents overlap with fixed navbar */
 }
-
-/* Prevent scroll jump when mobile menu open */
 .no-scroll { overflow: hidden; }
 
 /* Navbar */
@@ -28,20 +26,14 @@ body {
   top: 0; left: 0; width: 100%;
   display: flex; align-items: center; justify-content: space-between;
   background-color: var(--navbar-bg);
-  padding: 0.75rem 1rem; /* controls computed height */
+  padding: 0.75rem 1rem;
   z-index: 1000;
   transition: background-color 0.25s ease, padding 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 .logo { color: var(--accent); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.2px; }
 
-.nav-links {
-  list-style: none;
-  display: flex; gap: 2rem;
-}
-.nav-links a {
-  color: #f0f0f0; text-decoration: none; font-weight: 600;
-}
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-links a { color: #f0f0f0; text-decoration: none; font-weight: 600; }
 .nav-links a:hover { color: var(--accent); }
 
 .menu-toggle {
@@ -166,20 +158,24 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 /* Holiday image spacing */
 .holiday-gap { margin-top: 2rem; }
 
-/* Holiday card: span 4 columns on desktop, full width on mobile */
+/* Holiday card spans 4 columns on desktop, full width on mobile */
 .four-span { grid-column: span 4; }
 @media (max-width: 768px) {
   .four-span { grid-column: 1 / -1; }
 }
 
-/* Holiday card image sizing */
+/* Holiday card image sizing — larger and rectangular */
 .holiday-card img {
   width: 100%;
-  max-height: 300px;
+  max-width: 1000px;
+  max-height: 400px;
+  aspect-ratio: 5 / 2;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
   pointer-events: none;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Festive caption glow */
@@ -209,12 +205,4 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 .snowflake:nth-child(2) { left: 36%; animation-delay: 2s; }
 .snowflake:nth-child(3) { left: 58%; animation-delay: 4s; }
 .snowflake:nth-child(4) { left: 74%; animation-delay: 6s; }
-.snowflake:nth-child(5) { left: 88%; animation-delay: 8s; }
-.snowflake:nth-child(6) { left: 22%; animation-delay: 3s; }
-
-@keyframes fall {
-  0%   { transform: translateY(-10%) rotate(0deg); opacity: 0; }
-  10%  { opacity: 0.9; }
-  50%  { transform: translateY(60vh) rotate(180deg); }
-  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.2; }
-}
+.snowflake:nth-child(5
