@@ -146,8 +146,10 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 /* Holiday Card Fix */
 .full-span { grid-column: 1 / -1; }
 .holiday-gap { margin-top: 2rem; }
-.full-span .image-box img {
-  height: auto !important; /* override product image height */
+.holiday-gap img {
+  width: 100%;
+  max-height: 300px; /* limit holiday card height */
+  object-fit: contain; /* keep proportions without cropping */
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
   pointer-events: none;
