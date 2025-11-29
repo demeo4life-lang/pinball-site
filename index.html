@@ -33,7 +33,7 @@
     </div>
   </header>
 
-  <!-- About (optional anchor target) -->
+  <!-- About -->
   <section id="about" class="section-style">
     <h2>About</h2>
     <p>We specialize in pinball machines, arcade cabinets, and venue entertainment setups.</p>
@@ -51,15 +51,14 @@
       <div class="item-style"><div class="image-box"><img src="images/hockey-20251127.png" alt="Strikeworth Pro Aluminium Air Hockey" /><div class="caption">Strikeworth Pro Aluminium Air Hockey</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption">Pierce 12ft Shuffleboard Table</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
-	  
-	  <!-- Holiday Greeting Image (Full Grid Width) -->
-<div class="item-style full-span holiday-gap">
-  <div class="image-box">
-    <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
-    <div class="caption">Happy Holidays from Pinball Trading Co</div>
-  </div>
-</div>
 
+      <!-- Holiday Greeting Image (Full Grid Width) -->
+      <div class="item-style full-span holiday-gap">
+        <div class="image-box">
+          <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
+          <div class="caption">Happy Holidays from Pinball Trading Co</div>
+        </div>
+      </div>
     </div>
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
@@ -83,12 +82,10 @@
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    // Scroll effects
     function onScroll() {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
       navbar.classList.toggle('scrolled', window.scrollY > 50);
 
-      // Fade-in grid items
       document.querySelectorAll('.item-style').forEach(item => {
         const rect = item.getBoundingClientRect();
         if (rect.top < window.innerHeight - 60) item.classList.add('fade-in');
@@ -97,15 +94,12 @@
     window.addEventListener('scroll', onScroll);
     window.addEventListener('load', onScroll);
 
-    // Hamburger menu toggle
     menuToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('active');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
-      // prevent body from jumping when mobile menu opens
       document.body.classList.toggle('no-scroll', isOpen);
     });
 
-    // Close mobile menu on link click
     navLinks.addEventListener('click', (e) => {
       if (e.target.tagName === 'A' && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
