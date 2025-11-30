@@ -84,7 +84,6 @@ body {
 }
 .btn:hover { background-color: #ff3399; }
 
-/* Hero Animation */
 @keyframes fadeInHero {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -151,7 +150,7 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 }
 
 /* Holiday image spacing */
-.holiday-gap { margin-top: 2rem; }
+.holiday-gap { margin-top: 3rem; } /* clear space above holiday image */
 
 /* Holiday card spans 4 columns on desktop, full width on mobile */
 .four-span { grid-column: span 4; }
