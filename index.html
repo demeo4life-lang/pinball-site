@@ -75,30 +75,27 @@
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
 
-  <!-- NEW: Arcade Classic product block (placed after holiday image) -->
+  <!-- NEW: Arcade Classic product block positioned to match your example -->
   <section class="giant-section section-style giant-gap" aria-labelledby="giant-heading">
-    <h2 id="giant-heading">Arcade Classic 19"</h2>
-
-    <div class="giant-product">
-      <div class="giant-gallery">
-        <div class="giant-main">
-          <img id="giant-main-img" src="images/arcade-giant.png" alt="Arcade Classic main view" oncontextmenu="return false;" />
+    <div class="giant-inner">
+      <!-- Left: 2 rows x 3 columns gallery (exact arrangement like example) -->
+      <div class="giant-gallery-grid" aria-hidden="false">
+        <div class="gallery-row">
+          <div class="gallery-cell"><img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" /></div>
+          <div class="gallery-cell"><img src="images/arcade-giant1.png" alt="Arcade view 2" oncontextmenu="return false;" /></div>
+          <div class="gallery-cell"><img src="images/arcade-giant2.png" alt="Arcade view 3" oncontextmenu="return false;" /></div>
         </div>
-        <div class="giant-thumbs">
-          <button class="thumb" data-src="images/arcade-giant.png"><img src="images/arcade-giant.png" alt="thumb 1" /></button>
-          <button class="thumb" data-src="images/arcade-giant1.png"><img src="images/arcade-giant1.png" alt="thumb 2" /></button>
-          <button class="thumb" data-src="images/arcade-giant2.png"><img src="images/arcade-giant2.png" alt="thumb 3" /></button>
-          <button class="thumb" data-src="images/arcade-giant3.png"><img src="images/arcade-giant3.png" alt="thumb 4" /></button>
-          <button class="thumb" data-src="images/arcade-giant4.png"><img src="images/arcade-giant4.png" alt="thumb 5" /></button>
-          <button class="thumb" data-src="images/arcade-giant5.png"><img src="images/arcade-giant5.png" alt="thumb 6" /></button>
+        <div class="gallery-row">
+          <div class="gallery-cell"><img src="images/arcade-giant3.png" alt="Arcade view 4" oncontextmenu="return false;" /></div>
+          <div class="gallery-cell"><img src="images/arcade-giant4.png" alt="Arcade view 5" oncontextmenu="return false;" /></div>
+          <div class="gallery-cell"><img src="images/arcade-giant5.png" alt="Arcade view 6" oncontextmenu="return false;" /></div>
         </div>
       </div>
 
-      <div class="giant-info">
-        <div class="giant-title">
-          <h3>19&quot; Arcade Classic</h3>
-          <div class="price">R 9,850.00</div>
-        </div>
+      <!-- Right: product info column (aligned vertically center to gallery) -->
+      <aside class="giant-info-column" role="region" aria-labelledby="giant-heading">
+        <h2 id="giant-heading">19&quot; Arcade Classic</h2>
+        <div class="giant-price">R 9,850.00</div>
 
         <div class="giant-controls">
           <label for="art-select">Art</label>
@@ -121,7 +118,7 @@
           <p>Please note that an additional <strong>R850</strong> will be charged for a single door coin mech or <strong>R1000</strong> for a double door coin mech.</p>
           <p>We offer delivery anywhere in South Africa, or you can arrange to pick up your arcade from one of our Johannesburg locations.</p>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
@@ -139,8 +136,8 @@
 
   <!-- Inline scripts (kept inside HTML as requested) -->
   <script>
-    // Navbar, back-to-top, and grid fade-in behavior
     (function () {
+      // Navbar, back-to-top, and grid fade-in behavior
       const backToTop = document.querySelector('.back-to-top');
       const navbar = document.querySelector('.navbar');
       const menuToggle = document.querySelector('.menu-toggle');
@@ -172,14 +169,7 @@
         }
       });
 
-      // Giant product gallery thumbnail switching
-      const mainImg = document.getElementById('giant-main-img');
-      document.querySelectorAll('.giant-thumbs .thumb').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const src = btn.getAttribute('data-src');
-          if (src) mainImg.src = src;
-        });
-      });
+      // No gallery switching required for the 2x3 grid; keep images static like the example.
     })();
   </script>
 </body>
