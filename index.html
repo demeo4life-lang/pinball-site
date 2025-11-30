@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pinball Trading Co</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body id="top">
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" role="navigation">
     <div class="logo">Pinball Co</div>
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
-      <li><a href="#top">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="shop.html" target="_blank" rel="noopener noreferrer">Shop</a></li>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a role="menuitem" href="#top">Home</a></li>
+      <li role="none"><a role="menuitem" href="#about">About</a></li>
+      <li role="none"><a role="menuitem" href="#gallery">Gallery</a></li>
+      <li role="none"><a role="menuitem" href="#services">Services</a></li>
+      <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+      <li role="none"><a role="menuitem" href="shop.html" target="_blank" rel="noopener noreferrer">Shop</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
-    <img src="images/pinball-hero.png" alt="Pinball hero banner" class="hero-img" />
+  <header class="hero" role="banner">
+    <img class="hero-img" src="images/pinball-hero.png" alt="Pinball hero banner" />
     <div class="hero-text">
       <h1>Pinball Trading Co</h1>
       <p>Shop Pinball Trading Co for pinball machines across Sydney, Newcastle & Central Coast</p>
-      <a href="#services" class="btn">OUR COLLECTION</a>
+      <a class="btn" href="#services">OUR COLLECTION</a>
     </div>
   </header>
 
   <!-- About -->
-  <section id="about" class="section-style">
-    <h2>About</h2>
-    <p>We specialize in pinball machines, arcade cabinets, and venue entertainment setups.</p>
+  <section id="about" class="section-style" aria-labelledby="about-heading">
+    <h2 id="about-heading">About</h2>
+    <p class="about-text">
+      Action Arcades Sales &amp; Hire is a family owned business which has over 15 years experience servicing the arcade industry and as such have accumulated one of the largest ranges in arcade machine inventory for home party hire making us your one stop shop for all your arcade needs
+    </p>
   </section>
 
-  <!-- Services -->
-  <section class="services section-style" id="services">
-    <h2>OUR COLLECTION</h2>
+  <!-- Services / Products Grid -->
+  <section id="services" class="services section-style" aria-labelledby="services-heading">
+    <h2 id="services-heading">OUR COLLECTION</h2>
+
     <div class="grid-style">
       <div class="item-style"><div class="image-box"><img src="images/jukebox-20250304.png" alt="Angelina Digital Jukebox" /><div class="caption">Angelina Digital Jukebox</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/pinball-max.png" alt="Max pinball service" /><div class="caption">Max pinball service</div></div></div>
@@ -52,9 +55,9 @@
       <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption">Pierce 12ft Shuffleboard Table</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
 
-      <!-- Holiday Greeting Image -->
+      <!-- Holiday Greeting Image (spans 4 columns on desktop, full width on mobile) -->
       <div class="item-style holiday-gap four-span">
-        <div class="image-box holiday-card">
+        <div class="image-box holiday-card" aria-hidden="false">
           <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
           <div class="caption festive-caption">❄️ Happy Holidays from Pinball Trading Co 🎄</div>
           <div class="snowflakes" aria-hidden="true">
@@ -68,53 +71,57 @@
         </div>
       </div>
     </div>
+
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="section-style">
-    <h2>Contact Us</h2>
+  <footer id="contact" class="section-style" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
     <p>📞 0407 458 929</p>
     <p>📧 info@pinballtradingco.com.au</p>
     <p>📍 Sydney – Central Coast – Newcastle – Hunter Valley</p>
   </footer>
 
   <!-- Floating Buttons -->
-  <a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
-  <a href="#contact" class="contact-float" aria-label="Contact">📞 Contact</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
+  <a class="contact-float" href="#contact" aria-label="Contact">📞 Contact</a>
 
-  <!-- Scripts -->
+  <!-- Inline scripts (kept inside HTML as requested) -->
   <script>
-    const backToTop = document.querySelector('.back-to-top');
-    const navbar = document.querySelector('.navbar');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    // Navbar, back-to-top, and grid fade-in behavior
+    (function () {
+      const backToTop = document.querySelector('.back-to-top');
+      const navbar = document.querySelector('.navbar');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
 
-    function onScroll() {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-      document.querySelectorAll('.item-style').forEach(item => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) item.classList.add('fade-in');
-      });
-    }
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('load', onScroll);
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.classList.toggle('no-scroll', isOpen);
-    });
-
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A' && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('no-scroll');
+      function onScroll() {
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        document.querySelectorAll('.item-style').forEach(item => {
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) item.classList.add('fade-in');
+        });
       }
-    });
-  </script>
 
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('load', onScroll);
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('no-scroll', isOpen);
+      });
+
+      navLinks.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
