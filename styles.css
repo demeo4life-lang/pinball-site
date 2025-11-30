@@ -229,8 +229,8 @@ footer{background-color:#111;padding:2rem;text-align:center}
 .giant-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 220px; /* fixed row height to match example proportions */
-  gap:12px;
+  grid-auto-rows: 160px; /* tightened thumbnail height */
+  gap:10px;
   grid-auto-flow: dense;
   position:relative;
 }
@@ -238,14 +238,14 @@ footer{background-color:#111;padding:2rem;text-align:center}
 /* default cell */
 .giant-cell{
   background:#0b0b0b;
-  border-radius:8px;
+  border-radius:6px;
   overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 8px 24px rgba(0,0,0,0.45);
+  box-shadow:0 6px 18px rgba(0,0,0,0.40);
   cursor:pointer;
-  transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+  transition:transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s, opacity .22s;
   position:relative;
 }
 
@@ -255,23 +255,23 @@ footer{background-color:#111;padding:2rem;text-align:center}
   height:100%;
   object-fit:cover;
   display:block;
-  border-radius:6px;
-  transition:transform .28s ease;
+  border-radius:4px;
+  transition:transform .22s ease;
 }
 
-/* active (clicked or default) — spans 2x2 in place */
+/* active (clicked or default) — spans 2x2 in place with reduced scale */
 .giant-cell.active{
-  z-index:10;
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:0 22px 48px rgba(0,0,0,0.65);
-  border-radius:10px;
+  z-index:12;
+  transform:translateY(-4px) scale(1.01);
+  box-shadow:0 14px 36px rgba(0,0,0,0.55);
+  border-radius:8px;
   /* grid-column / grid-row are set inline by JS so the cell expands in place */
 }
 
 /* dim non-active cells slightly when one is active */
 .giant-grid.has-active .giant-cell:not(.active){
-  opacity:0.85;
-  transform:scale(.995);
+  opacity:0.92;
+  transform:scale(.998);
 }
 
 /* right info column */
@@ -294,9 +294,9 @@ footer{background-color:#111;padding:2rem;text-align:center}
 /* responsive: stack gallery above info on smaller screens while preserving 2x3 look */
 @media (max-width:980px){
   .giant-wrapper{grid-template-columns:1fr;gap:18px}
-  .giant-grid{grid-auto-rows:180px}
+  .giant-grid{grid-auto-rows:140px}
   /* disable spanning behavior on small screens to avoid layout issues */
-  .giant-cell.active{grid-column:auto !important;grid-row:auto !important;transform:none;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+  .giant-cell.active{grid-column:auto !important;grid-row:auto !important;transform:none;box-shadow:0 8px 20px rgba(0,0,0,0.35)}
 }
 @media (max-width:600px){
   .giant-grid{grid-auto-rows:120px;gap:8px}
