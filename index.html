@@ -55,9 +55,9 @@
       <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption">Pierce 12ft Shuffleboard Table</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
 
-      <!-- Holiday Greeting Image (spans 4 columns on desktop, full width on mobile) -->
+      <!-- Holiday Greeting Image -->
       <div class="item-style holiday-gap four-span">
-        <div class="image-box holiday-card" aria-hidden="false">
+        <div class="image-box holiday-card">
           <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
           <div class="caption festive-caption">❄️ Happy Holidays from Pinball Trading Co 🎄</div>
           <div class="snowflakes" aria-hidden="true">
@@ -73,6 +73,56 @@
     </div>
 
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
+  </section>
+
+  <!-- NEW: Arcade Classic product block (placed after holiday image) -->
+  <section class="giant-section section-style giant-gap" aria-labelledby="giant-heading">
+    <h2 id="giant-heading">Arcade Classic 19"</h2>
+
+    <div class="giant-product">
+      <div class="giant-gallery">
+        <div class="giant-main">
+          <img id="giant-main-img" src="images/arcade-giant.png" alt="Arcade Classic main view" oncontextmenu="return false;" />
+        </div>
+        <div class="giant-thumbs">
+          <button class="thumb" data-src="images/arcade-giant.png"><img src="images/arcade-giant.png" alt="thumb 1" /></button>
+          <button class="thumb" data-src="images/arcade-giant1.png"><img src="images/arcade-giant1.png" alt="thumb 2" /></button>
+          <button class="thumb" data-src="images/arcade-giant2.png"><img src="images/arcade-giant2.png" alt="thumb 3" /></button>
+          <button class="thumb" data-src="images/arcade-giant3.png"><img src="images/arcade-giant3.png" alt="thumb 4" /></button>
+          <button class="thumb" data-src="images/arcade-giant4.png"><img src="images/arcade-giant4.png" alt="thumb 5" /></button>
+          <button class="thumb" data-src="images/arcade-giant5.png"><img src="images/arcade-giant5.png" alt="thumb 6" /></button>
+        </div>
+      </div>
+
+      <div class="giant-info">
+        <div class="giant-title">
+          <h3>19&quot; Arcade Classic</h3>
+          <div class="price">R 9,850.00</div>
+        </div>
+
+        <div class="giant-controls">
+          <label for="art-select">Art</label>
+          <select id="art-select" name="art">
+            <option>Standard</option>
+            <option>Marvel</option>
+            <option>Street Fighter</option>
+            <option>Pacman</option>
+            <option>Donkey Kong</option>
+            <option>Custom Artwork</option>
+          </select>
+
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="giant-desc">
+          <p><strong>Introducing the ultimate gaming experience:</strong> the 19&quot; Arcade Game Machine with 2000 games included! This compact and sleek arcade machine is perfect for any gaming enthusiast, with a wide variety of classic and modern game themes to choose from.</p>
+          <p>You can choose to customize your machine with artwork from popular franchises like Marvel, Street Fighter, Pacman, and Donkey Kong, or create your own custom artwork to make it truly unique.</p>
+          <p>Our arcades are locally produced. When you order your arcade, we’ll pick it up from our manufacturing unit in 6–12 weeks from ordering; you’ll be playing your favourite games in no time!</p>
+          <p>Please note that an additional <strong>R850</strong> will be charged for a single door coin mech or <strong>R1000</strong> for a double door coin mech.</p>
+          <p>We offer delivery anywhere in South Africa, or you can arrange to pick up your arcade from one of our Johannesburg locations.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -120,6 +170,15 @@
           menuToggle.setAttribute('aria-expanded', 'false');
           document.body.classList.remove('no-scroll');
         }
+      });
+
+      // Giant product gallery thumbnail switching
+      const mainImg = document.getElementById('giant-main-img');
+      document.querySelectorAll('.giant-thumbs .thumb').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-src');
+          if (src) mainImg.src = src;
+        });
       });
     })();
   </script>
