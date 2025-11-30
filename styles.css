@@ -232,6 +232,8 @@ footer{background-color:#111;padding:2rem;text-align:center}
   grid-auto-rows: 220px; /* fixed row height to match example proportions */
   gap:12px;
 }
+
+/* default cell */
 .giant-cell{
   background:#0b0b0b;
   border-radius:8px;
@@ -240,13 +242,35 @@ footer{background-color:#111;padding:2rem;text-align:center}
   align-items:center;
   justify-content:center;
   box-shadow:0 8px 24px rgba(0,0,0,0.45);
+  cursor:pointer;
+  transition:all .28s cubic-bezier(.2,.9,.2,1);
+  position:relative;
 }
+
+/* image inside cell */
 .giant-cell img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
   border-radius:6px;
+  transition:transform .28s ease;
+}
+
+/* active (clicked) cell becomes larger: spans 2 columns and 2 rows */
+.giant-cell.active{
+  z-index:5;
+  transform:scale(1.02);
+  box-shadow:0 18px 40px rgba(0,0,0,0.6);
+  border-radius:10px;
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* when a cell is active, slightly dim non-active cells for emphasis */
+.giant-grid .giant-cell:not(.active){
+  opacity:0.9;
+  transform:scale(1);
 }
 
 /* right info column */
@@ -270,6 +294,8 @@ footer{background-color:#111;padding:2rem;text-align:center}
 @media (max-width:980px){
   .giant-wrapper{grid-template-columns:1fr;gap:18px}
   .giant-grid{grid-auto-rows:180px}
+  /* disable spanning behavior on small screens to avoid layout issues */
+  .giant-cell.active{grid-column:auto;grid-row:auto;transform:none;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
 }
 @media (max-width:600px){
   .giant-grid{grid-auto-rows:120px;gap:8px}
