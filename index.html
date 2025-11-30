@@ -75,13 +75,16 @@
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
 
-  <!-- Arcade Classic block with clickable gallery (one image enlarges when clicked) -->
+  <!-- Arcade Classic block with default enlarged tile (scoped to this category only) -->
   <section class="giant-section section-style giant-gap-strong" aria-labelledby="giant-heading">
     <div class="giant-wrapper">
       <!-- Left: 2 rows x 3 columns gallery -->
       <div class="giant-gallery" aria-hidden="false">
         <div class="giant-grid" id="giant-grid">
-          <div class="giant-cell" data-index="0" tabindex="0"><img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" /></div>
+          <!-- default enlarged thumbnail marked with data-default="true" -->
+          <div class="giant-cell" data-index="0" data-default="true" tabindex="0">
+            <img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" />
+          </div>
           <div class="giant-cell" data-index="1" tabindex="0"><img src="images/arcade-giant1.png" alt="Arcade view 2" oncontextmenu="return false;" /></div>
           <div class="giant-cell" data-index="2" tabindex="0"><img src="images/arcade-giant2.png" alt="Arcade view 3" oncontextmenu="return false;" /></div>
           <div class="giant-cell" data-index="3" tabindex="0"><img src="images/arcade-giant3.png" alt="Arcade view 4" oncontextmenu="return false;" /></div>
@@ -132,10 +135,10 @@
   <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
   <a class="contact-float" href="#contact" aria-label="Contact">📞 Contact</a>
 
-  <!-- Inline scripts: gallery click behavior (one image enlarges) -->
+  <!-- Inline scripts: scoped gallery behavior for Arcade Classic only -->
   <script>
     (function () {
-      // Navbar, back-to-top, and grid fade-in behavior
+      // Navbar, back-to-top, and grid fade-in behavior (unchanged)
       const backToTop = document.querySelector('.back-to-top');
       const navbar = document.querySelector('.navbar');
       const menuToggle = document.querySelector('.menu-toggle');
@@ -167,7 +170,7 @@
         }
       });
 
-      // ---------- Gallery: click to enlarge one image ----------
+      // ---------- Scoped gallery: default active + click-to-expand in-place ----------
       const grid = document.getElementById('giant-grid');
       if (grid) {
         const cells = Array.from(grid.querySelectorAll('.giant-cell'));
@@ -181,30 +184,55 @@
           });
         }
 
-        cells.forEach((cell) => {
+        function getGridPosition(el) {
+          const gridRect = grid.getBoundingClientRect();
+          const elRect = el.getBoundingClientRect();
+          const gap = parseFloat(getComputedStyle(grid).columnGap) || 12;
+          const colWidth = (gridRect.width - gap * 2) / 3;
+          const colIndex = Math.min(3, Math.max(1, Math.round((elRect.left - gridRect.left) / colWidth) + 1));
+          const rowHeight = parseFloat(getComputedStyle(grid).gridAutoRows) || 220;
+          const rowGap = parseFloat(getComputedStyle(grid).rowGap) || gap;
+          const rowIndex = Math.max(1, Math.round((elRect.top - gridRect.top) / (rowHeight + rowGap)) + 1);
+          return { colStart: colIndex, rowStart: rowIndex };
+        }
+
+        // initialize default active tile (scoped to this gallery)
+        function initDefault() {
+          const defaultCell = grid.querySelector('.giant-cell[data-default="true"]');
+          if (!defaultCell) return;
+          if (window.matchMedia('(max-width:980px)').matches) return;
+          const pos = getGridPosition(defaultCell);
+          const col = pos.colStart || 1;
+          const row = pos.rowStart || 1;
+          defaultCell.style.gridColumn = `${col} / span 2`;
+          defaultCell.style.gridRow = `${row} / span 2`;
+          defaultCell.classList.add('active');
+          grid.classList.add('has-active');
+        }
+
+        cells.forEach(cell => {
+          if (!cell.hasAttribute('tabindex')) cell.setAttribute('tabindex', '0');
+
           cell.addEventListener('click', () => {
-            // small-screen fallback: open image in new tab
             if (window.matchMedia('(max-width:980px)').matches) {
               const img = cell.querySelector('img');
               if (img && img.src) window.open(img.src, '_blank');
               return;
             }
-
             const isActive = cell.classList.contains('active');
             clearActive();
             if (!isActive) {
-              // move clicked cell to start so it visually expands top-left
-              grid.insertBefore(cell, grid.firstChild);
+              const pos = getGridPosition(cell);
+              const col = pos.colStart || 1;
+              const row = pos.rowStart || 1;
+              cell.style.gridColumn = `${col} / span 2`;
+              cell.style.gridRow = `${row} / span 2`;
               cell.classList.add('active');
-              cell.style.gridColumn = '1 / span 2';
-              cell.style.gridRow = '1 / span 2';
               grid.classList.add('has-active');
-              // ensure focus remains on the clicked cell
               cell.focus();
             }
           });
 
-          // keyboard accessibility
           cell.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
@@ -216,7 +244,7 @@
           });
         });
 
-        // clear active on resize to avoid layout issues
+        window.addEventListener('load', () => setTimeout(initDefault, 60));
         window.addEventListener('resize', () => {
           if (window.matchMedia('(max-width:980px)').matches) clearActive();
         });

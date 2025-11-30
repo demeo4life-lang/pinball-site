@@ -208,7 +208,7 @@ footer{background-color:#111;padding:2rem;text-align:center}
 .snowflake:nth-child(6){left:22%;animation-delay:3s}
 @keyframes fall{0%{transform:translateY(-10%) rotate(0deg);opacity:0}10%{opacity:.9}50%{transform:translateY(60vh) rotate(180deg)}100%{transform:translateY(100vh) rotate(360deg);opacity:.2}}
 
-/* ---------- Arcade Classic exact-position block ---------- */
+/* ---------- Arcade Classic exact-position block (scoped) ---------- */
 
 /* stronger gap so it sits visually separate from holiday image */
 .giant-gap-strong{margin-top:4.2rem;margin-bottom:3rem}
@@ -259,14 +259,13 @@ footer{background-color:#111;padding:2rem;text-align:center}
   transition:transform .28s ease;
 }
 
-/* active (clicked) cell becomes larger: spans 2 columns and 2 rows and sits on top */
+/* active (clicked or default) — spans 2x2 in place */
 .giant-cell.active{
   z-index:10;
   transform:translateY(-6px) scale(1.02);
   box-shadow:0 22px 48px rgba(0,0,0,0.65);
   border-radius:10px;
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
+  /* grid-column / grid-row are set inline by JS so the cell expands in place */
 }
 
 /* dim non-active cells slightly when one is active */
@@ -297,7 +296,7 @@ footer{background-color:#111;padding:2rem;text-align:center}
   .giant-wrapper{grid-template-columns:1fr;gap:18px}
   .giant-grid{grid-auto-rows:180px}
   /* disable spanning behavior on small screens to avoid layout issues */
-  .giant-cell.active{grid-column:auto;grid-row:auto;transform:none;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+  .giant-cell.active{grid-column:auto !important;grid-row:auto !important;transform:none;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
 }
 @media (max-width:600px){
   .giant-grid{grid-auto-rows:120px;gap:8px}
