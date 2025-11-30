@@ -84,6 +84,7 @@ body {
 }
 .btn:hover { background-color: #ff3399; }
 
+/* Hero Animation */
 @keyframes fadeInHero {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -201,3 +202,10 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 .snowflake:nth-child(4) { left: 74%; animation-delay: 6s; }
 .snowflake:nth-child(5) { left: 88%; animation-delay: 8s; }
 .snowflake:nth-child(6) { left: 22%; animation-delay: 3s; }
+
+@keyframes fall {
+  0%   { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.9; }
+  50%  { transform: translateY(60vh) rotate(180deg); }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.2; }
+}
