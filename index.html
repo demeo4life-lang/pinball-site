@@ -75,25 +75,23 @@
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
 
-  <!-- NEW: Arcade Classic product block positioned to match your example -->
-  <section class="giant-section section-style giant-gap" aria-labelledby="giant-heading">
-    <div class="giant-inner">
-      <!-- Left: 2 rows x 3 columns gallery (exact arrangement like example) -->
-      <div class="giant-gallery-grid" aria-hidden="false">
-        <div class="gallery-row">
-          <div class="gallery-cell"><img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" /></div>
-          <div class="gallery-cell"><img src="images/arcade-giant1.png" alt="Arcade view 2" oncontextmenu="return false;" /></div>
-          <div class="gallery-cell"><img src="images/arcade-giant2.png" alt="Arcade view 3" oncontextmenu="return false;" /></div>
-        </div>
-        <div class="gallery-row">
-          <div class="gallery-cell"><img src="images/arcade-giant3.png" alt="Arcade view 4" oncontextmenu="return false;" /></div>
-          <div class="gallery-cell"><img src="images/arcade-giant4.png" alt="Arcade view 5" oncontextmenu="return false;" /></div>
-          <div class="gallery-cell"><img src="images/arcade-giant5.png" alt="Arcade view 6" oncontextmenu="return false;" /></div>
+  <!-- Arcade Classic block positioned to match your example exactly -->
+  <section class="giant-section section-style giant-gap-strong" aria-labelledby="giant-heading">
+    <div class="giant-wrapper">
+      <!-- Left: 2 rows x 3 columns gallery -->
+      <div class="giant-gallery">
+        <div class="giant-grid">
+          <div class="giant-cell"><img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" /></div>
+          <div class="giant-cell"><img src="images/arcade-giant1.png" alt="Arcade view 2" oncontextmenu="return false;" /></div>
+          <div class="giant-cell"><img src="images/arcade-giant2.png" alt="Arcade view 3" oncontextmenu="return false;" /></div>
+          <div class="giant-cell"><img src="images/arcade-giant3.png" alt="Arcade view 4" oncontextmenu="return false;" /></div>
+          <div class="giant-cell"><img src="images/arcade-giant4.png" alt="Arcade view 5" oncontextmenu="return false;" /></div>
+          <div class="giant-cell"><img src="images/arcade-giant5.png" alt="Arcade view 6" oncontextmenu="return false;" /></div>
         </div>
       </div>
 
-      <!-- Right: product info column (aligned vertically center to gallery) -->
-      <aside class="giant-info-column" role="region" aria-labelledby="giant-heading">
+      <!-- Right: info column vertically centered -->
+      <aside class="giant-info" role="region" aria-labelledby="giant-heading">
         <h2 id="giant-heading">19&quot; Arcade Classic</h2>
         <div class="giant-price">R 9,850.00</div>
 
@@ -134,10 +132,9 @@
   <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
   <a class="contact-float" href="#contact" aria-label="Contact">📞 Contact</a>
 
-  <!-- Inline scripts (kept inside HTML as requested) -->
+  <!-- Inline scripts -->
   <script>
     (function () {
-      // Navbar, back-to-top, and grid fade-in behavior
       const backToTop = document.querySelector('.back-to-top');
       const navbar = document.querySelector('.navbar');
       const menuToggle = document.querySelector('.menu-toggle');
@@ -168,8 +165,6 @@
           document.body.classList.remove('no-scroll');
         }
       });
-
-      // No gallery switching required for the 2x3 grid; keep images static like the example.
     })();
   </script>
 </body>
