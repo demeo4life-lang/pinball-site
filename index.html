@@ -25,7 +25,7 @@
 
   <!-- Hero -->
   <header class="hero" role="banner">
-    <img class="hero-img" src="images/wall-pinball.png" alt="Pinball hero banner" />
+    <img class="hero-img" src="images/pinball-hero.png" alt="Pinball hero banner" />
     <div class="hero-text">
       <h1>Pinball Trading Co</h1>
       <p>Shop Pinball Trading Co for pinball machines across Sydney, Newcastle & Central Coast</p>
@@ -81,12 +81,12 @@
       <!-- Left: 2 rows x 3 columns gallery -->
       <div class="giant-gallery" aria-hidden="false">
         <div class="giant-grid" id="giant-grid">
-          <div class="giant-cell" data-index="0"><img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" /></div>
-          <div class="giant-cell" data-index="1"><img src="images/arcade-giant1.png" alt="Arcade view 2" oncontextmenu="return false;" /></div>
-          <div class="giant-cell" data-index="2"><img src="images/arcade-giant2.png" alt="Arcade view 3" oncontextmenu="return false;" /></div>
-          <div class="giant-cell" data-index="3"><img src="images/arcade-giant3.png" alt="Arcade view 4" oncontextmenu="return false;" /></div>
-          <div class="giant-cell" data-index="4"><img src="images/arcade-giant4.png" alt="Arcade view 5" oncontextmenu="return false;" /></div>
-          <div class="giant-cell" data-index="5"><img src="images/arcade-giant5.png" alt="Arcade view 6" oncontextmenu="return false;" /></div>
+          <div class="giant-cell" data-index="0" tabindex="0"><img src="images/arcade-giant.png" alt="Arcade view 1" oncontextmenu="return false;" /></div>
+          <div class="giant-cell" data-index="1" tabindex="0"><img src="images/arcade-giant1.png" alt="Arcade view 2" oncontextmenu="return false;" /></div>
+          <div class="giant-cell" data-index="2" tabindex="0"><img src="images/arcade-giant2.png" alt="Arcade view 3" oncontextmenu="return false;" /></div>
+          <div class="giant-cell" data-index="3" tabindex="0"><img src="images/arcade-giant3.png" alt="Arcade view 4" oncontextmenu="return false;" /></div>
+          <div class="giant-cell" data-index="4" tabindex="0"><img src="images/arcade-giant4.png" alt="Arcade view 5" oncontextmenu="return false;" /></div>
+          <div class="giant-cell" data-index="5" tabindex="0"><img src="images/arcade-giant5.png" alt="Arcade view 6" oncontextmenu="return false;" /></div>
         </div>
       </div>
 
@@ -169,43 +169,58 @@
 
       // ---------- Gallery: click to enlarge one image ----------
       const grid = document.getElementById('giant-grid');
-      const cells = Array.from(grid.querySelectorAll('.giant-cell'));
+      if (grid) {
+        const cells = Array.from(grid.querySelectorAll('.giant-cell'));
 
-      function clearActive() {
-        cells.forEach(c => c.classList.remove('active'));
+        function clearActive() {
+          grid.classList.remove('has-active');
+          cells.forEach(c => {
+            c.classList.remove('active');
+            c.style.gridColumn = '';
+            c.style.gridRow = '';
+          });
+        }
+
+        cells.forEach((cell) => {
+          cell.addEventListener('click', () => {
+            // small-screen fallback: open image in new tab
+            if (window.matchMedia('(max-width:980px)').matches) {
+              const img = cell.querySelector('img');
+              if (img && img.src) window.open(img.src, '_blank');
+              return;
+            }
+
+            const isActive = cell.classList.contains('active');
+            clearActive();
+            if (!isActive) {
+              // move clicked cell to start so it visually expands top-left
+              grid.insertBefore(cell, grid.firstChild);
+              cell.classList.add('active');
+              cell.style.gridColumn = '1 / span 2';
+              cell.style.gridRow = '1 / span 2';
+              grid.classList.add('has-active');
+              // ensure focus remains on the clicked cell
+              cell.focus();
+            }
+          });
+
+          // keyboard accessibility
+          cell.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              cell.click();
+            }
+            if (e.key === 'Escape') {
+              clearActive();
+            }
+          });
+        });
+
+        // clear active on resize to avoid layout issues
+        window.addEventListener('resize', () => {
+          if (window.matchMedia('(max-width:980px)').matches) clearActive();
+        });
       }
-
-      // Click handler: toggle active on clicked cell, ensure only one active
-      cells.forEach(cell => {
-        cell.addEventListener('click', () => {
-          // On small screens, don't change layout — just open image in new tab
-          if (window.matchMedia('(max-width:980px)').matches) {
-            const img = cell.querySelector('img');
-            if (img && img.src) window.open(img.src, '_blank');
-            return;
-          }
-
-          const isActive = cell.classList.contains('active');
-          clearActive();
-          if (!isActive) cell.classList.add('active');
-        });
-      });
-
-      // Optional: keyboard accessibility (Enter/Space to toggle)
-      cells.forEach((cell, idx) => {
-        cell.setAttribute('tabindex', '0');
-        cell.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            cell.click();
-          }
-        });
-      });
-
-      // If window resizes to small, remove active classes to avoid layout issues
-      window.addEventListener('resize', () => {
-        if (window.matchMedia('(max-width:980px)').matches) clearActive();
-      });
     })();
   </script>
 </body>
