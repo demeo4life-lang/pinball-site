@@ -1,4 +1,8 @@
-/* Variables (easy tuning) */
+/* =========================
+   Complete styles.css
+   ========================= */
+
+/* Variables */
 :root {
   --body-bg: #000;
   --text: #fff;
@@ -9,13 +13,12 @@
   --navbar-bg-scrolled: #000;
   --navbar-height: 64px;
 
-  /* Gallery tuning (Arcade Giant section) */
-  --giant-row: 120px;      /* thumbnail height */
-  --giant-gap: 8px;        /* gap between thumbnails */
-  --display-bg: #0b0b0b;   /* enlarged display area background */
-  --display-radius: 8px;   /* display area radius */
-  --thumb-radius: 6px;     /* thumbnail radius */
-  --anim-time: 260ms;      /* animation timing */
+  --giant-row: 120px;
+  --giant-gap: 8px;
+  --display-bg: #0b0b0b;
+  --display-radius: 8px;
+  --thumb-radius: 6px;
+  --anim-time: 260ms;
   --anim-ease: cubic-bezier(.2,.9,.2,1);
 
   --shadow-soft: 0 6px 18px rgba(0,0,0,0.40);
@@ -153,149 +156,19 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   .nav-links a { font-size: 0.95rem; }
 }
 
-/* Holiday image spacing */
-.holiday-gap { margin-top: 3.2rem; margin-bottom: 2.2rem; }
-
-/* Holiday card */
-.four-span { grid-column: span 4; }
-@media (max-width: 1024px) { .four-span { grid-column: span 3; } }
-@media (max-width: 768px) { .four-span { grid-column: 1 / -1; } }
-.holiday-card img {
-  width: 100%; max-width: 1000px; max-height: 400px; aspect-ratio: 5 / 2;
-  object-fit: contain; border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.6), 0 0 20px rgba(255,0,127,.18);
-  margin: 0 auto; display: block; pointer-events: auto;
-}
-.festive-caption {
-  font-size: 1.15rem; font-weight: 800; color: #fff;
-  text-shadow: 0 0 8px #ff007f, 0 0 16px #ff3399;
-  background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
-}
-
-/* Snowflakes animation */
-.snowflakes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.snowflake {
-  position: absolute; top: -10%; color: #fff; opacity: .85; font-size: 1.4rem;
-  animation: fall 10s linear infinite;
-}
-.snowflake:nth-child(1){ left: 12%; animation-delay: 0s; }
-.snowflake:nth-child(2){ left: 36%; animation-delay: 2s; }
-.snowflake:nth-child(3){ left: 58%; animation-delay: 4s; }
-.snowflake:nth-child(4){ left: 74%; animation-delay: 6s; }
-.snowflake:nth-child(5){ left: 88%; animation-delay: 8s; }
-.snowflake:nth-child(6){ left: 22%; animation-delay: 3s; }
-@keyframes fall {
-  0%   { transform: translateY(-10%) rotate(0deg); opacity: 0; }
-  10%  { opacity: .9; }
-  50%  { transform: translateY(60vh) rotate(180deg); }
-  100% { transform: translateY(100vh) rotate(360deg); opacity: .2; }
-}
-
-/* =========================
-   Arcade Giant product block
-   - Clicking a thumbnail DOES NOT resize the thumbnail
-   - Instead, it updates the separate enlarged display area
-   - Thumbnails remain exact size, with optional active outline
-   ========================= */
-
-/* Section spacing vs holiday block */
+/* Arcade Giant product block */
 .giant-gap-strong { margin-top: 4.2rem; margin-bottom: 3rem; }
-
-/* Two-column layout: left = gallery (display + thumbs), right = info */
 .giant-wrapper {
   max-width: 1180px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 420px;
   gap: 28px; align-items: start; padding: 0 1rem;
 }
-
-/* Left column: stack display over thumbnails */
 .giant-gallery { width: 100%; display: grid; grid-template-rows: auto auto; gap: 12px; }
-
-/* Enlarged display area (replaces image on click, thumbs unchanged) */
 .giant-display {
   background: var(--display-bg);
   border-radius: var(--display-radius);
   box-shadow: var(--shadow-strong);
   overflow: hidden;
-  min-height: calc(var(--giant-row) * 2 + var(--giant-gap)); /* roughly matches description height */
+  min-height: calc(var(--giant-row) * 2 + var(--giant-gap));
   display: grid; place-items: center;
-}
-.giant-display img {
-  width: 100%; height: 100%;
-  object-fit: contain; /* show full cabinet art */
-  transition: opacity var(--anim-time) ease, transform var(--anim-time) var(--anim-ease);
-  opacity: 1; transform: scale(1.0001);
-}
-.giant-display.swapping img {
-  opacity: 0.2; transform: scale(0.995); /* brief feedback when swapping image */
-}
-
-/* Thumbnails grid: fixed-size tiles, never resize on click */
-.giant-thumbs {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: var(--giant-gap);
-}
-.giant-thumb {
-  height: var(--giant-row);
-  border-radius: var(--thumb-radius);
-  overflow: hidden;
-  background: #0b0b0b;
-  box-shadow: var(--shadow-soft);
-  cursor: pointer;
-  position: relative;
-}
-.giant-thumb img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform var(--anim-time) var(--anim-ease), opacity var(--anim-time) ease;
-}
-.giant-thumb:hover img { transform: scale(1.05); }     /* hover lift only */
-.giant-thumb:active img { transform: scale(1.03); }    /* tap/click feedback */
-
-/* Optional active state: outline only; tile size stays identical */
-.giant-thumb.active::after {
-  content: ""; position: absolute; inset: 0;
-  border: 2px solid var(--accent);
-  border-radius: var(--thumb-radius);
-  box-shadow: 0 0 0 2px rgba(255,0,127,.35), 0 0 14px rgba(255,0,127,.25);
-}
-
-/* Slight dim for non-active thumbnails (optional, keeps sizes intact) */
-.giant-thumbs.has-active .giant-thumb:not(.active) img { opacity: 0.95; transform: scale(1.0); }
-
-/* Right info column */
-.giant-info {
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
-  padding: 22px; border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-  text-align: left;
-}
-.giant-info h2 { margin: 0 0 8px 0; font-size: 1.6rem; }
-.giant-price { font-size: 1.35rem; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
-.giant-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
-.giant-controls label { font-weight: 700; }
-.giant-controls select {
-  padding: .5rem .6rem; border-radius: 6px;
-  border: 1px solid rgba(255,255,255,.08); background: #0b0b0b; color: var(--text);
-}
-.add-cart {
-  background: var(--accent); color: #fff;
-  padding: .7rem 1rem; border-radius: 8px; border: 0; font-weight: 800; cursor: pointer;
-}
-.add-cart:hover { background: var(--accent-hover); }
-.giant-desc p { margin: .5rem 0; color: rgba(255,255,255,.92); line-height: 1.5; font-size: .98rem; }
-
-/* Balance display area with text on wide screens */
-@media (min-width: 1200px) {
-  .giant-display { min-height: calc(var(--giant-row) * 2.2 + var(--giant-gap)); }
-}
-
-/* Small screens: stack columns, maintain behavior */
-@media (max-width: 980px) {
-  .giant-wrapper { grid-template-columns: 1fr; gap: 20px; }
-  .giant-display { min-height: calc(var(--giant-row) * 2 + var(--giant-gap)); }
-}
-
-/* Ultra wide: allow slightly taller display for breathing room */
-@media (min-width: 1400px) {
-  .giant-display { min-height: calc(var(--giant-row) * 2.4 + var(--giant-gap)); }
 }
