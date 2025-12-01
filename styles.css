@@ -164,6 +164,7 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   gap: 28px; align-items: start; padding: 0 1rem;
 }
 .giant-gallery { width: 100%; display: grid; grid-template-rows: auto auto; gap: 12px; }
+
 .giant-display {
   background: var(--display-bg);
   border-radius: var(--display-radius);
@@ -171,4 +172,18 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   overflow: hidden;
   min-height: calc(var(--giant-row) * 2 + var(--giant-gap));
   display: grid; place-items: center;
+}
+.giant-display img { width: 100%; height: auto; display: block; transition: opacity var(--anim-time) var(--anim-ease); }
+.giant-display.swapping img { opacity: 0.3; }
+/* Accessibility: focus ring for clickable elements */
+button:focus-visible,
+[role="button"]:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Mono utility */
+img {
+  user-select: none;
 }
