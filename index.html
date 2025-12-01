@@ -187,10 +187,10 @@
         function getGridPosition(el) {
           const gridRect = grid.getBoundingClientRect();
           const elRect = el.getBoundingClientRect();
-          const gap = parseFloat(getComputedStyle(grid).columnGap) || 12;
+          const gap = parseFloat(getComputedStyle(grid).columnGap) || 10;
           const colWidth = (gridRect.width - gap * 2) / 3;
           const colIndex = Math.min(3, Math.max(1, Math.round((elRect.left - gridRect.left) / colWidth) + 1));
-          const rowHeight = parseFloat(getComputedStyle(grid).gridAutoRows) || 220;
+          const rowHeight = parseFloat(getComputedStyle(grid).gridAutoRows) || 160;
           const rowGap = parseFloat(getComputedStyle(grid).rowGap) || gap;
           const rowIndex = Math.max(1, Math.round((elRect.top - gridRect.top) / (rowHeight + rowGap)) + 1);
           return { colStart: colIndex, rowStart: rowIndex };
