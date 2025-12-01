@@ -1,3 +1,7 @@
+/* =========================
+   Complete styles.css
+   ========================= */
+
 /* Variables (easy tuning) */
 :root {
   --body-bg: #000;
@@ -8,11 +12,11 @@
   --navbar-bg-scrolled: #000;
   --navbar-height: 64px;
 
-  /* Gallery tuning */
-  --giant-row: 140px;      /* base thumbnail height */
-  --giant-gap: 8px;        /* gap between thumbnails */
-  --active-scale: 1.04;    /* subtle zoom when active */
-  --anim-time: 260ms;      /* animation timing */
+  /* Gallery tuning (Arcade Classic) */
+  --giant-row: 120px;      /* smaller thumbnail height to match reference */
+  --giant-gap: 8px;        /* compact gap */
+  --active-scale: 1.02;    /* subtle zoom for active tile */
+  --anim-time: 260ms;      /* animation duration */
   --anim-ease: cubic-bezier(.2,.9,.2,1);
   --active-shadow: 0 18px 40px rgba(0,0,0,0.6);
 }
@@ -158,7 +162,7 @@ body {
 .caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: var(--text);
   padding: 0.5rem;
   text-align: center;
@@ -245,27 +249,29 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
 .snowflake:nth-child(4){ left: 74%; animation-delay: 6s; }
 .snowflake:nth-child(5){ left: 88%; animation-delay: 8s; }
 .snowflake:nth-child(6){ left: 22%; animation-delay: 3s; }
-
 @keyframes fall {
   0%   { transform: translateY(-10%) rotate(0deg); opacity: 0; }
   10%  { opacity: .9; }
   50%  { transform: translateY(60vh) rotate(180deg); }
   100% { transform: translateY(100vh) rotate(360deg); opacity: .2; }
 }
-
 /* ---------- Arcade Classic gallery scoped styles ---------- */
+
+/* Stronger spacing before this block */
 .giant-gap-strong { margin-top: 4.2rem; margin-bottom: 3rem; }
 
+/* Wrapper: gallery + info column balanced like the reference */
 .giant-wrapper {
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 28px;
-  align-items: center;
+  grid-template-columns: 1fr 400px; /* slightly narrower info column for balance */
+  gap: 24px;
+  align-items: start; /* align tops to keep visual rhythm */
   padding: 0 1rem;
 }
 
+/* Left gallery grid: 3 columns, compact rows */
 .giant-gallery { width: 100%; }
 .giant-grid {
   display: grid;
@@ -277,6 +283,7 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   transition: all var(--anim-time) ease;
 }
 
+/* Cells */
 .giant-cell {
   background: #0b0b0b;
   border-radius: 6px;
@@ -297,44 +304,38 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   object-fit: cover;
   display: block;
   border-radius: 4px;
-  transition: transform var(--anim-time) ease;
+  transition: transform var(--anim-time) ease, object-position var(--anim-time) ease;
   transform-origin: center center;
 }
+
+/* Hover: subtle lift on the image, grid stays put */
 .giant-cell:hover img {
-  transform: scale(1.05); /* subtle hover lift */
+  transform: scale(1.05);
 }
 
+/* Active tile: expand in place with balanced height vs text column */
 .giant-cell.active {
   z-index: 14;
-  transform: translateY(-6px) scale(var(--active-scale));
+  transform: translateY(-4px) scale(var(--active-scale));
   box-shadow: var(--active-shadow);
   border-radius: 8px;
+
+  /* Simulate ~1.5 rows height (grid can't span fractional rows) */
+  /* JS sets grid-column/grid-row: X / span 2, Y / span 2 */
+  min-height: calc(var(--giant-row) * 1.5 + var(--giant-gap));
 }
 .giant-cell.active img {
-  object-fit: contain;
+  object-fit: contain; /* show the entire cabinet */
   transform: none;
 }
 
+/* Dim other tiles slightly when one is active */
 .giant-grid.has-active .giant-cell:not(.active) {
   opacity: 0.9;
   transform: scale(.997);
 }
 
-@media (min-width: 1400px) {
-  :root { --giant-row: 160px; }
-  .giant-cell.active { transform: translateY(-6px) scale(calc(var(--active-scale) + 0.01)); }
-}
-@media (max-width: 980px) {
-  .giant-wrapper { grid-template-columns: 1fr; gap: 18px; }
-  .giant-grid { grid-auto-rows: 120px; }
-  .giant-cell.active {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    transform: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  }
-}
-
+/* Info column */
 .giant-info {
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
   padding: 22px;
@@ -368,4 +369,23 @@ footer { background-color: #111; padding: 2rem; text-align: center; }
   color: rgba(255,255,255,.92);
   line-height: 1.5;
   font-size: .98rem;
+}
+
+/* Wide screens: slightly taller rows for breathing room */
+@media (min-width: 1400px) {
+  :root { --giant-row: 130px; } /* keep thumbnails compact even on wide */
+  .giant-cell.active { transform: translateY(-4px) scale(calc(var(--active-scale) + 0.005)); }
+}
+
+/* Small screens: stack, disable spanning visuals */
+@media (max-width: 980px) {
+  .giant-wrapper { grid-template-columns: 1fr; gap: 18px; }
+  .giant-grid { grid-auto-rows: 120px; }
+  .giant-cell.active {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    transform: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    min-height: auto; /* no simulated 1.5 rows */
+  }
 }
