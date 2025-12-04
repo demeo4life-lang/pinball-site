@@ -14,38 +14,37 @@
     <div class="logo">Pinball Co</div>
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <ul class="nav-links" role="menubar">
-      <li role="none"><a role="menuitem" href="#top">Home</a></li>
-      <li role="none"><a role="menuitem" href="#about">About</a></li>
-      <li role="none"><a role="menuitem" href="#services">Services</a></li>
-      <li role="none"><a role="menuitem" href="#holiday">Holiday</a></li>
-      <li role="none"><a role="menuitem" href="#arcade-giant">Arcade Giant</a></li>
-      <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
-      <li role="none"><a role="menuitem" href="shop.html" target="_blank" rel="noopener noreferrer">Shop</a></li>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#holiday">Holiday</a></li>
+      <li><a href="#arcade-giant">Arcade Giant</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="shop.html" target="_blank" rel="noopener noreferrer">Shop</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
-  <header class="hero" role="banner">
-    <img class="hero-img" src="images/wall-pinball.png" alt="Pinball hero banner" />
+  <header class="hero">
+    <img class="hero-img" src="images/pinball-hero.png" alt="Pinball hero banner" />
     <div class="hero-text">
       <h1>Pinball Trading Co</h1>
-      <p>Shop Pinball Trading Co for pinball machines across Sydney, Newcastle & Central Coast</p>
+      <p>Shop Pinball Trading Co for pinball machines across Sydney, Newcastle &amp; Central Coast</p>
       <a class="btn" href="#services">OUR COLLECTION</a>
     </div>
   </header>
 
   <!-- About -->
-  <section id="about" class="section-style" aria-labelledby="about-heading">
-    <h2 id="about-heading">About</h2>
+  <section id="about" class="section-style">
+    <h2>About</h2>
     <p class="about-text">
       Action Arcades Sales &amp; Hire is a family owned business with over 15 years experience servicing the arcade industry.
     </p>
   </section>
 
-  <!-- Services / Products Grid -->
-  <section id="services" class="services section-style" aria-labelledby="services-heading">
-    <h2 id="services-heading">OUR COLLECTION</h2>
-
+  <!-- Services -->
+  <section id="services" class="services section-style">
+    <h2>OUR COLLECTION</h2>
     <div class="grid-style">
       <div class="item-style"><div class="image-box"><img src="images/jukebox-20250304.png" alt="Angelina Digital Jukebox" /><div class="caption">Angelina Digital Jukebox</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/pinball-max.png" alt="Max pinball service" /><div class="caption">Max pinball service</div></div></div>
@@ -56,49 +55,41 @@
       <div class="item-style"><div class="image-box"><img src="images/shuffleboard-pierce.png" alt="Pierce 12ft Shuffleboard Table" /><div class="caption">Pierce 12ft Shuffleboard Table</div></div></div>
       <div class="item-style"><div class="image-box"><img src="images/wrestlefest-ultra.png" alt="WWE Wrestlefest Ultra Arcade Machine" /><div class="caption">WWE Wrestlefest Ultra Arcade Machine</div></div></div>
     </div>
-
     <p>From custom arcade setups to claw and chocolate machines for venues — we’ve got you covered.</p>
   </section>
-  
-    <!-- Holiday Greeting Section (standalone, right after Services) -->
-  <section id="holiday" aria-labelledby="holiday-heading" style="padding: 4rem 1.5rem; text-align: center; background-color: #000;">
-    <h2 id="holiday-heading" style="font-size: 1.8rem; color: #fff; margin-bottom: 1rem;">Holiday Greeting</h2>
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.6); background: #0b0b0b;">
-        <img src="images/holiday-card.png" alt="Happy Holidays greeting"
-             style="width: 100%; height: auto; display: block; aspect-ratio: 5 / 2; object-fit: contain;"
-             oncontextmenu="return false;" />
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 1rem; text-align: center;
-                    font-weight: 800; font-size: 1.1rem; color: #fff;
-                    text-shadow: 0 0 8px #ff007f, 0 0 16px #ff3399;
-                    background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,.35));">
-          ❄️ Happy Holidays from Pinball Trading Co 🎄
-        </div>
-      </div>
+
+  <!-- Holiday Greeting -->
+  <section id="holiday" class="section-style">
+    <h2>Holiday Greeting</h2>
+    <div class="holiday-card">
+      <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
+      <div class="holiday-caption">❄️ Happy Holidays from Pinball Trading Co 🎄</div>
     </div>
   </section>
-  
-    <!-- Arcade Giant Section -->
-  <section id="arcade-giant" class="giant-section section-style giant-gap-strong" aria-labelledby="giant-heading">
+
+  <!-- Arcade Giant -->
+  <section id="arcade-giant" class="giant-section section-style giant-gap-strong">
     <div class="giant-wrapper">
+      <!-- Gallery left -->
       <div class="giant-gallery">
         <div class="giant-display">
-          <img src="images/arcade-giant.png" alt="Arcade cabinet" />
+          <!-- Fixed container/background; only the image transforms -->
+          <img class="giant-photo" src="images/arcade-giant.png" alt="Arcade cabinet enlarged view" />
         </div>
         <div class="giant-thumbs">
-          <div class="giant-thumb" data-default="true"><img src="images/arcade-giant.png" alt="Arcade 1" /></div>
-          <div class="giant-thumb"><img src="images/arcade-giant1.png" alt="Arcade 2" /></div>
-          <div class="giant-thumb"><img src="images/arcade-giant2.png" alt="Arcade 3" /></div>
-          <div class="giant-thumb"><img src="images/arcade-giant3.png" alt="Arcade 4" /></div>
-          <div class="giant-thumb"><img src="images/arcade-giant4.png" alt="Arcade 5" /></div>
-          <div class="giant-thumb"><img src="images/arcade-giant5.png" alt="Arcade 6" /></div>
+          <div class="giant-thumb active" data-default="true"><img src="images/arcade-giant.png" alt="Front angle" /></div>
+          <div class="giant-thumb"><img src="images/arcade-giant1.png" alt="Angle 1" /></div>
+          <div class="giant-thumb"><img src="images/arcade-giant2.png" alt="Angle 2" /></div>
+          <div class="giant-thumb"><img src="images/arcade-giant3.png" alt="Angle 3" /></div>
+          <div class="giant-thumb"><img src="images/arcade-giant4.png" alt="Angle 4" /></div>
+          <div class="giant-thumb"><img src="images/arcade-giant5.png" alt="Angle 5" /></div>
         </div>
       </div>
 
-      <aside class="giant-info" role="region" aria-labelledby="giant-heading">
-        <h2 id="giant-heading">32” ARCADE GIANT</h2>
-        <div class="giant-price">R 26,500.00</div>
-
+      <!-- Info right -->
+      <aside class="giant-info">
+        <h3>32” ARCADE GIANT</h3>
+        <div class="giant-price">$ 850.00</div>
         <div class="giant-controls">
           <label for="art-select">Art</label>
           <select id="art-select" name="art">
@@ -112,17 +103,15 @@
           </select>
           <button class="add-cart">ADD TO CART</button>
         </div>
-
-        <div class="giant-desc">
+        <div class="giant-desc fade-in-desc">
           <p><strong>Introducing the ultimate gaming experience:</strong> the 32” Arcade GIANT Game Machine with 2000 games included!</p>
-          <p>And with arcade buttons, LED joysticks, and 2-player mode, this machine takes your gaming experience to the next level.</p>
+          <p>With arcade buttons, LED joysticks, and 2-player mode, this machine takes your gaming experience to the next level.</p>
           <p>Customize your machine with artwork from Galaga, Space Invaders, Tekken, Mortal Kombat, Street Fighter, Donkey Kong — or create your own unique design.</p>
           <p>Made from the finest materials and built to last, so you can enjoy playing your favorite games in a no-fuss, stress-free way.</p>
           <p>We offer delivery anywhere in South Africa, or you can arrange to pick up your machine from our premises in Johannesburg.</p>
         </div>
-
         <div class="giant-reviews">
-          <h3>CUSTOMER REVIEWS</h3>
+          <h4>CUSTOMER REVIEWS</h4>
           <p>⭐️⭐️⭐️⭐️⭐️ 5.00 out of 5 (2 reviews)</p>
         </div>
       </aside>
@@ -130,88 +119,102 @@
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="section-style" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Contact Us</h2>
-    <p>📞 0407 458 929</p>
-    <p>📧 info@pinballtradingco.com.au</p>
-    <p>📍 Sydney – Central Coast – Newcastle – Hunter Valley</p>
+  <footer id="contact" class="section-style">
+    <h2>Contact</h2>
+    <p class="about-text">Reach out for sales, rentals, or service. We deliver across South Africa.</p>
+    <p>Email: sales@pinballco.example · Phone: +27 11 555 1234</p>
   </footer>
 
-  <!-- Floating Buttons -->
-  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
-  <a class="contact-float" href="#contact" aria-label="Contact">📞 Contact</a>
+  <!-- Floating buttons -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
+  <a href="#contact" class="contact-float" aria-label="Contact">Contact</a>
 
-  <!-- Script -->
+  <!-- JS -->
   <script>
-  (function () {
-    const display = document.querySelector('.giant-display img');
-    const displayContainer = document.querySelector('.giant-display');
-    const thumbs = document.querySelectorAll('.giant-thumb');
-
-    function clearActive() {
-      thumbs.forEach(t => t.classList.remove('active'));
-      const group = document.querySelector('.giant-thumbs');
-      if (group) group.classList.remove('has-active');
-    }
-
-    thumbs.forEach((thumb) => {
-      thumb.addEventListener('click', () => {
-        const img = thumb.querySelector('img');
-        if (!img || !img.src) return;
-
-        displayContainer.classList.add('swapping');
-        setTimeout(() => {
-          display.src = img.src;
-          display.alt = img.alt || '';
-          displayContainer.classList.remove('swapping');
-        }, 120);
-
-        clearActive();
-        thumb.classList.add('active');
-        const group = document.querySelector('.giant-thumbs');
-        if (group) group.classList.add('has-active');
-      });
-
-      thumb.setAttribute('tabindex', '0');
-      thumb.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          thumb.click();
-        }
-      });
-    });
-
-    window.addEventListener('load', () => {
-      const defaultThumb = document.querySelector('.giant-thumb[data-default="true"]');
-      if (defaultThumb) defaultThumb.click();
-    });
-
-    const toggle = document.querySelector('.menu-toggle');
-    const links = document.querySelector('.nav-links');
-    if (toggle && links) {
-      toggle.addEventListener('click', () => {
-        const isOpen = links.classList.toggle('active');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        document.body.classList.toggle('no-scroll', isOpen);
-      });
-      links.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          links.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('no-scroll');
-        });
-      });
-    }
-
+    // Sticky navbar + buttons visibility
+    const navbar = document.querySelector('.navbar');
     const backToTop = document.querySelector('.back-to-top');
     const contactFloat = document.querySelector('.contact-float');
     window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY > 300;
-      if (backToTop) backToTop.style.display = scrolled ? 'inline-block' : 'none';
-      if (contactFloat) contactFloat.style.display = scrolled ? 'inline-block' : 'none';
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 10);
+      const show = y > 280;
+      backToTop.style.display = show ? 'inline-block' : 'none';
+      contactFloat.style.display = show ? 'inline-block' : 'none';
     });
-  })();
-  </script>
 
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const active = links.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+      document.body.classList.toggle('no-scroll', active);
+    });
+
+    // Fade-in items on load (services grid)
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.item-style').forEach((el, i) => {
+        setTimeout(() => el.classList.add('fade-in'), 120 * i);
+      });
+    });
+
+    // Arcade Giant: click thumbnails to swap main image and set active state (no auto changes)
+    const displayImg = document.querySelector('.giant-photo');
+    const thumbsWrap = document.querySelector('.giant-thumbs');
+    if (thumbsWrap && displayImg) {
+      thumbsWrap.addEventListener('click', (e) => {
+        const t = e.target.closest('.giant-thumb');
+        if (!t) return;
+        const img = t.querySelector('img');
+        if (!img) return;
+        const src = img.getAttribute('src');
+        thumbsWrap.querySelectorAll('.giant-thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        displayImg.setAttribute('src', src);
+        // Reset transform on swap
+        displayImg.style.transform = 'scale(1) translate(0, 0)';
+      });
+      thumbsWrap.classList.add('has-active');
+    }
+
+    // Interactive enlarge + pan on main enlarged image (background fixed)
+    if (displayImg) {
+      const MAX_SCALE = 1.18;  // magnification similar to reference
+      const SHIFT_PX = 24;     // pan range in pixels
+
+      function updateTransformFromPoint(clientX, clientY) {
+        const rect = displayImg.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+        const nx = (x / rect.width - 0.5) * 2;  // -1..1
+        const ny = (y / rect.height - 0.5) * 2; // -1..1
+        const tx = Math.max(-1, Math.min(1, nx)) * SHIFT_PX;
+        const ty = Math.max(-1, Math.min(1, ny)) * SHIFT_PX;
+        displayImg.style.transform = `scale(${MAX_SCALE}) translate(${tx}px, ${ty}px)`;
+      }
+
+      displayImg.addEventListener('mouseenter', (e) => {
+        updateTransformFromPoint(e.clientX, e.clientY);
+      });
+      displayImg.addEventListener('mousemove', (e) => {
+        updateTransformFromPoint(e.clientX, e.clientY);
+      });
+      displayImg.addEventListener('mouseleave', () => {
+        displayImg.style.transform = 'scale(1) translate(0, 0)';
+      });
+
+      // Touch support (pans while finger moves; background still fixed)
+      displayImg.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          const t = e.touches[0];
+          updateTransformFromPoint(t.clientX, t.clientY);
+        }
+      }, { passive: true });
+      displayImg.addEventListener('touchend', () => {
+        displayImg.style.transform = 'scale(1) translate(0, 0)';
+      });
+    }
+  </script>
 </body>
 </html>
