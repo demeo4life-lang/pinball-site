@@ -16,9 +16,6 @@
     <ul class="nav-links" role="menubar">
       <li><a href="#top">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#holiday">Holiday</a></li>
-      <li><a href="#arcade-giant">Arcade Giant</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="shop.html" target="_blank" rel="noopener noreferrer">Shop</a></li>
     </ul>
@@ -63,7 +60,7 @@
   <section id="holiday" class="section-style">
     <h2>Holiday Greeting</h2>
     <div class="holiday-card">
-      <img src="images/holiday-card.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
+      <img src="images/happy-holidays.png" alt="Happy Holidays greeting" oncontextmenu="return false;" />
       <div class="holiday-caption">❄️ Happy Holidays from Pinball Trading Co 🎄</div>
     </div>
   </section>
@@ -104,9 +101,9 @@
           <button class="add-cart">ADD TO CART</button>
         </div>
         <div class="giant-desc fade-in-desc">
-          <p><strong>Introducing the ultimate gaming experience:</strong> the 32” Arcade GIANT Game Machine with 2000 games included!</p>
-          <p>With arcade buttons, LED joysticks, and 2-player mode, this machine takes your gaming experience to the next level.</p>
-          <p>Customize your machine with artwork from Galaga, Space Invaders, Tekken, Mortal Kombat, Street Fighter, Donkey Kong — or create your own unique design.</p>
+          <p><strong>Introducing the ultimate gaming experience:</strong> the 32" Arcade GIANT Game Machine with 2000 games included! This giant arcade machine is perfect for any gaming enthusiast, with a wide variety of classic and modern games to choose from. And with upgrade options for LED buttons, joysticks, and unit light, you can take your gaming experience to the next level.</p>
+          <p>But that's not all - with the option to customize your machine with artwork from popular franchises like Galaga, Space Invaders, Tekken, Mortal Kombat, Street Fighter, Pacman, and Donkey Kong, or create your own unique design, your arcade machine will truly be one of a kind.</p>
+          <p>And the best part? Our arcades are locally produced, so you can feel good about supporting your community while enjoying top-quality entertainment. Plus, with a quick turnaround time of 1-2 weeks from ordering, you'll be playing your favorite games in no time.</p>
           <p>Made from the finest materials and built to last, so you can enjoy playing your favorite games in a no-fuss, stress-free way.</p>
           <p>We offer delivery anywhere in South Africa, or you can arrange to pick up your machine from our premises in Johannesburg.</p>
         </div>
@@ -118,6 +115,65 @@
     </div>
   </section>
 
+  <!-- Retro Jukebox (safely namespaced, won’t affect Arcade Giant) -->
+  <section id="jukebox-retro" class="section-style giant-gap-strong">
+    <div class="jukebox-wrapper">
+      <!-- Gallery left -->
+      <div class="jukebox-gallery">
+        <div class="jukebox-display">
+          <img class="jukebox-photo" src="images/jukebox-101.png" alt="Retro Jukebox front view" />
+        </div>
+        <div class="jukebox-thumbs">
+          <div class="jukebox-thumb active"><img src="images/jukebox-101.png" alt="Front view" /></div>
+          <div class="jukebox-thumb"><img src="images/jukebox-102.png" alt="White variant" /></div>
+          <div class="jukebox-thumb"><img src="images/jukebox-103.png" alt="Touch screen close-up" /></div>
+          <div class="jukebox-thumb"><img src="images/jukebox-104.png" alt="Speaker and lighting detail" /></div>
+        </div>
+      </div>
+
+      <!-- Info right -->
+      <aside class="jukebox-info">
+        <h3>Retro Jukebox</h3>
+        <div class="jukebox-price">R 31,500.00</div>
+        <div class="jukebox-controls">
+          <label for="jukebox-color">Colour</label>
+          <select id="jukebox-color" name="color">
+            <option>Black</option>
+            <option>White</option>
+          </select>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+        <div class="jukebox-desc fade-in-desc">
+          <p><strong>The Retro Jukebox is a classic style with a modern twist!</strong> It is bound to be the life of the party...</p>
+          <p>Available in White or Black</p>
+          <p>1X 15" Speaker · Aux port · Full touch screen · Karaoke · Video function · USB port</p>
+          <p><em>For Home Use Only</em></p>
+          <p><strong>Made to order</strong> — Lead time approx 4 weeks</p>
+        </div>
+        <div class="giant-reviews">
+          <h4>CUSTOMER REVIEWS</h4>
+          <p>⭐️⭐️⭐️⭐️⭐️ 5.00 out of 5 (3 reviews)</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-style">
+    <h2>Contact</h2>
+    <p>Email us at info@pinballco.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="shop-footer">
+    <p>© 2025 Pinball Trading Co – All Rights Reserved</p>
+  </footer>
+
+  <!-- Floating buttons (anchors) -->
+  <a href="#top" class="back-to-top">↑ Top</a>
+  <a href="#contact" class="contact-float">Contact</a>
+
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
