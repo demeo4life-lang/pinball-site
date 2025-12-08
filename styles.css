@@ -157,15 +157,18 @@ a { color: inherit; }
 /* Gallery left */
 #arcade-giant .giant-gallery { display: flex; flex-direction: column; gap: 1.5rem; }
 #arcade-giant .giant-display {
-  background: var(--display-bg);
+  ackground: var(--display-bg);
   border-radius: var(--display-radius);
   box-shadow: var(--shadow-strong);
   padding: 0.75rem;
-  display: grid; place-items: center;
-  overflow: hidden; max-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 320px;
 }
 #arcade-giant .giant-photo {
-  width: auto; max-width: 100%; max-height: 100%; object-fit: contain;
+  width: auto; height: auto%; max-height: none; object-fit: contain;
 }
 #arcade-giant .giant-thumbs {
   display: grid;
@@ -235,11 +238,14 @@ a { color: inherit; }
   border-radius: var(--display-radius);
   box-shadow: var(--shadow-strong);
   padding: 0.75rem;
-  display: grid; place-items: center;
-  overflow: hidden; max-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 320px;
 }
 #jukebox-retro .jukebox-photo {
-  width: auto; max-width: 100%; max-height: 100%; object-fit: contain;
+  width: 100%; max-height: none; object-fit: contain; height: auto;
 }
 #jukebox-retro .jukebox-thumbs {
   display: grid; grid-template-columns: repeat(4, 1fr);
