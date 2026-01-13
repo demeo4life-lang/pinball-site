@@ -115,12 +115,40 @@ a { color: inherit; }
 .item-style { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
 .item-style.fade-in { opacity: 1; transform: none; }
 .image-box { position: relative; overflow: hidden; border-radius: 8px; background: #0b0b0b; }
-.image-box img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s; }
+.image-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #0b0b0b;
+  height: 200px; /* fixed box height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
 .image-box:hover img { transform: scale(1.05); }
 .caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: rgba(0,0,0,0.6); color: var(--text);
-  padding: 0.5rem; text-align: center; font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: var(--accent);   /* matches price color */
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  transition: color 0.3s ease; /* smooth color change */
+}
+
+.image-box:hover .caption {
+  color: #ffffff; /* shift to white on hover */
+
 }
 
 /* =========================
@@ -298,11 +326,37 @@ a { color: inherit; }
 #contact.section-style p { font-size: 1rem; color: var(--muted); }
 
 /* =========================
-   Footer
+   Footer Section
    ========================= */
-.shop-footer {
-  background: #111; padding: 2rem; text-align: center;
-  color: var(--muted);
+#site-footer {
+  background: #0f0f0f;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-note {
+  font-size: 0.85rem;
+  color: #888;
 }
 .shop-footer p { font-size: 0.95rem; }
 
@@ -335,3 +389,636 @@ a { color: inherit; }
    ========================= */
 .fade-in-desc { animation: fadeIn var(--anim-time) var(--anim-ease) both; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* =========================
+   Contact Banner Section
+   ========================= */
+#contact-banner.contact-banner {
+  text-align: left;
+  background: #0b0b0b;
+  padding: 4rem 1.5rem;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .contact-wrapper { grid-template-columns: 1fr; text-align: center; }
+  .contact-text { margin-top: 1.5rem; }
+}
+
+.contact-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-text h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.contact-text p {
+  font-size: 1rem;
+  color: #e6e6e6;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   Featured Arcade Machines Grid
+   ========================= */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .featured-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .featured-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Claw Machine Section
+   ========================= */
+#claw-machine { text-align: left; }
+
+.claw-machine-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+@media (max-width: 1024px) {
+  .claw-machine-wrapper { grid-template-columns: 1fr; }
+}
+
+/* Gallery left */
+.claw-machine-gallery { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.claw-machine-display {
+  background: var(--display-bg);
+  border-radius: var(--display-radius);
+  box-shadow: var(--shadow-strong);
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.claw-machine-photo {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.claw-machine-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.claw-machine-thumb img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  border-radius: var(--thumb-radius);
+  background: #0f0f0f;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+}
+.claw-machine-thumb img:hover { transform: scale(1.03); opacity: 0.9; }
+.claw-machine-thumb.active img {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px rgba(255,0,127,0.6);
+}
+
+/* Info right */
+.claw-machine-info {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-strong);
+}
+.claw-machine-info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.claw-machine-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.claw-machine-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.claw-machine-controls label { font-weight: 700; }
+.claw-machine-controls select {
+  background: #101010;
+  color: var(--text);
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+}
+.claw-machine-info .add-cart {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 800;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+}
+.claw-machine-info .add-cart:hover { background: var(--accent-hover); }
+
+.claw-machine-desc {
+  color: #e6e6e6;
+  font-size: 0.98rem;
+  margin-top: 1rem;
+}
+.claw-machine-desc p + p { margin-top: 0.65rem; }
+
+.claw-machine-info .giant-reviews {
+  margin-top: 1rem;
+}
+.claw-machine-info .giant-reviews h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #f5f5f5;
+}
+
+/* =========================
+   More Banner Section
+   ========================= */
+#more-banner.more-banner {
+  text-align: left;
+  background: #0b0b0b;
+  padding: 4rem 1.5rem;
+}
+
+.more-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .more-wrapper { grid-template-columns: 1fr; text-align: center; }
+  .more-text { margin-top: 1.5rem; }
+}
+
+/* =========================
+   Multi Changer All In One Change Machine
+   ========================= */
+#changer-machine { text-align: left; }
+
+.changer-machine-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+@media (max-width: 1024px) {
+  .changer-machine-wrapper { grid-template-columns: 1fr; }
+}
+
+/* Gallery left */
+.changer-machine-gallery { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.changer-machine-display {
+  background: var(--display-bg);
+  border-radius: var(--display-radius);
+  box-shadow: var(--shadow-strong);
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.changer-machine-photo {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.changer-machine-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.changer-machine-thumb img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  border-radius: var(--thumb-radius);
+  background: #0f0f0f;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+}
+.changer-machine-thumb img:hover { transform: scale(1.03); opacity: 0.9; }
+.changer-machine-thumb.active img {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px rgba(255,0,127,0.6);
+}
+
+/* Info right */
+.changer-machine-info {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-strong);
+}
+.changer-machine-info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.changer-machine-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.changer-machine-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.changer-machine-controls label { font-weight: 700; }
+.changer-machine-controls select {
+  background: #101010;
+  color: var(--text);
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+}
+.changer-machine-info .add-cart {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 800;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+}
+.changer-machine-info .add-cart:hover { background: var(--accent-hover); }
+
+.changer-machine-desc {
+  color: #e6e6e6;
+  font-size: 0.98rem;
+  margin-top: 1rem;
+}
+.changer-machine-desc p + p { margin-top: 0.65rem; }
+
+.changer-machine-info .giant-reviews {
+  margin-top: 1rem;
+}
+.changer-machine-info .giant-reviews h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #f5f5f5;
+}
+
+/* =========================
+   Unmatched Arcade Classics Section
+   ========================= */
+#arcade-classics { text-align: center; }
+
+#arcade-classics h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.arcade-classics-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.arcade-classics-left img,
+.arcade-classics-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 1024px) {
+  .arcade-classics-wrapper { grid-template-columns: 1fr; }
+  .arcade-classics-right { margin-top: 1.5rem; }
+}
+
+.arcade-classics-left img,
+.arcade-classics-right img {
+  width: 100%;
+  height: 400px;   /* fixed height for both */
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   CAPTAIN FANTASTIC - Elton John - 1976 Williams Pinball Machine
+   ========================= */
+#pinball-machine { text-align: left; }
+
+.pinball-machine-wrapper {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+@media (max-width: 1024px) {
+  .pinball-machine-wrapper { grid-template-columns: 1fr; }
+}
+
+/* Gallery left */
+.pinball-machine-gallery { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.pinball-machine-display {
+  background: var(--display-bg);
+  border-radius: var(--display-radius);
+  box-shadow: var(--shadow-strong);
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.pinball-machine-photo {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.pinball-machine-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.pinball-machine-thumb img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  border-radius: var(--thumb-radius);
+  background: #0f0f0f;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+}
+.pinball-machine-thumb img:hover { transform: scale(1.03); opacity: 0.9; }
+.pinball-machine-thumb.active img {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px rgba(255,0,127,0.6);
+}
+
+/* Info right */
+.pinball-machine-info {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-strong);
+}
+.pinball-machine-info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.pinball-machine-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.pinball-machine-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.pinball-machine-controls label { font-weight: 700; }
+.pinball-machine-controls select {
+  background: #101010;
+  color: var(--text);
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+}
+.pinball-machine-info .add-cart {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 800;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+}
+.pinball-machine-info .add-cart:hover { background: var(--accent-hover); }
+
+.pinball-machine-desc {
+  color: #e6e6e6;
+  font-size: 0.98rem;
+  margin-top: 1rem;
+}
+.pinball-machine-desc p + p { margin-top: 0.65rem; }
+
+.pinball-machine-info .giant-reviews {
+  margin-top: 1rem;
+}
+.pinball-machine-info .giant-reviews h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #f5f5f5;
+}
+
+#captain-fantastic .fantastic-display {
+  background: var(--display-bg);
+  border-radius: var(--display-radius);
+  box-shadow: var(--shadow-strong);
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 400px;   /* fixed height, not min-height */
+}
+
+#captain-fantastic .fantastic-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* scales consistently inside fixed box */
+  transition: opacity 0.3s ease;
+}
+
+#captain-fantastic .fantastic-photo {
+  transition: opacity 0.3s ease;
+}
+
+/* =========================
+   Simple 3 Step Order Process
+   ========================= */
+#order-process { text-align: center; }
+
+#order-process h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.order-process-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.order-step {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.order-step img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.order-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+.order-step p {
+  font-size: 0.95rem;
+  color: #e6e6e6;
+}
+
+@media (max-width: 1024px) {
+  .order-process-wrapper { grid-template-columns: 1fr; }
+  .order-step { margin-bottom: 2rem; }
+}
+
+/* =========================
+   Accepted Payment Methods Section
+   ========================= */
+#arcade-classics { text-align: center; }
+
+#arcade-classics h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.arcade-classics-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.arcade-classics-centre img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   Newsletter Subscription
+   ========================= */
+#newsletter {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--shadow-soft);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#newsletter h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+#newsletter p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #e6e6e6;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 0.8rem;
+  border: 1px solid #222;
+  border-radius: 6px;
+  width: 280px;
+  max-width: 100%;
+  background: #101010;
+  color: var(--text);
+}
+
+.newsletter-form button {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: var(--accent-hover);
+}
+
+.related-item.highlight {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255,0,127,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

@@ -1,0 +1,710 @@
+/* =========================
+   Global Styles
+   ========================= */
+:root {
+  --accent: #ff004f;
+  --accent-hover: #ff3366;
+  --panel-bg: #1a1a1a;
+  --panel-radius: 8px;
+  --shadow-soft: 0 2px 6px rgba(0,0,0,0.4);
+  --text: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
+  color: var(--text);
+}
+
+/* =========================
+   Header
+   ========================= */
+.shop-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.shop-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.shop-header p {
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+/* =========================
+   Navbar
+   ========================= */
+.shop-navbar {
+  background-color: #000;
+  padding: 1rem;
+  text-align: center;
+}
+
+.shop-navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.shop-navbar a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.shop-navbar a:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   Layout
+   ========================= */
+.shop-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.shop-sidebar {
+  width: 250px;
+  background-color: #222;
+  padding: 1rem;
+  border-radius: var(--panel-radius);
+}
+
+.shop-sidebar h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.shop-sidebar a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.shop-sidebar a:hover {
+  color: var(--accent-hover);
+}
+
+/* =========================
+   Product Content
+   ========================= */
+.shop-content {
+  flex: 1;
+}
+
+.product-img,
+.product-photo {
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--panel-radius);
+  margin-bottom: 1rem;
+}
+
+.shop-content h1,
+#product-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.price,
+#product-price {
+  font-size: 1rem;
+  color: var(--accent);
+  margin: 0.25rem 0;
+  font-weight: bold;
+}
+
+.tagline {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.features,
+#product-features {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+.btn,
+.add-cart {
+  background-color: var(--accent);
+  color: var(--text);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover,
+.add-cart:hover {
+  background-color: var(--accent-hover);
+}
+
+/* =========================
+   Pinball Collection Grid
+   ========================= */
+.shop-content.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* =========================
+   Pinball Product Cards
+   ========================= */
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card h4 {
+  margin-top: 0.75rem;
+  color: var(--accent);
+}
+
+/* ✅ Keyboard focus styles */
+.product-link:focus .product-card {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   Related Products
+   ========================= */
+.related-products {
+  margin-top: 3rem;
+}
+
+.related-products h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  text-align: center;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.related-item {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+.related-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.related-item p {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.related-item .add-cart {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.related-item .add-cart:hover {
+  background: var(--accent-hover);
+}
+
+.related-item.highlight {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255,0,127,0.4);
+}
+
+/* =========================
+   Reviews
+   ========================= */
+.product-reviews {
+  margin-top: 3rem;
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.product-reviews h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.review strong {
+  color: gold;
+}
+
+.review span {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* =========================
+   Newsletter
+   ========================= */
+#newsletter {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.newsletter-form input {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background: #222;
+  color: var(--text);
+}
+
+.newsletter-form button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.newsletter-form button:hover {
+  background: var(--accent-hover);
+}
+
+/* =========================
+   Payment Methods
+   ========================= */
+#payment-methods {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.payment-methods-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.payment-methods-wrapper img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* =========================
+   Mini Cart Overlay
+   ========================= */
+#mini-cart {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 300px;
+  height: 100%;
+  background: var(--panel-bg);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.6);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  color: var(--text);
+}
+
+#mini-cart.active {
+  right: 0;
+}
+
+.mini-cart-content {
+  padding: 1rem;
+}
+
+.mini-cart-content h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.mini-cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.mini-cart-items li {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.mini-cart-total {
+  font-weight: bold;
+  margin: 1rem 0;
+  color: var(--accent);
+}
+
+.close-cart {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.close-cart:hover {
+  background: var(--accent-hover);
+}
+
+.remove-item {
+  background: transparent;
+  color: #ff6666;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.remove-item:hover {
+  color: #ff3333;
+  text-decoration: underline;
+}
+
+.mini-cart-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.checkout-cart {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.checkout-cart:hover {
+  background: var(--accent-hover);
+}
+
+.clear-cart {
+  background: #444;
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.clear-cart:hover {
+  background: #666;
+}
+
+/* =========================
+   Checkout Page
+   ========================= */
+.order-summary, .customer-details {
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.order-summary h2, .customer-details h2 {
+  color: var(--accent);
+  margin-top: 0;
+}
+
+#checkout-items {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+#checkout-items li {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+#checkout-total {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+#checkout-form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+#checkout-form input, #checkout-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background: #222;
+  color: var(--text);
+}
+
+#checkout-form button {
+  margin-top: 1.5rem;
+}
+
+/* =========================
+   Thank You Page
+   ========================= */
+.thankyou {
+  text-align: center;
+  padding: 3rem;
+  background: var(--panel-bg);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.thankyou h1 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.thankyou .tagline {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.thankyou .description {
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   Custom Modal Popup
+   ========================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background: var(--panel-bg);
+  color: var(--text);
+  margin: 15% auto;
+  padding: 2rem;
+  border-radius: var(--panel-radius);
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.modal-content h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+#close-modal {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+#close-modal:hover {
+  background: var(--accent-hover);
+}
+
+/* =========================
+   Footer
+   ========================= */
+.shop-footer {
+  background-color: #222;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* =========================
+   Tablet Tweaks
+   ========================= */
+@media (max-width: 900px) {
+  .product-card {
+    height: 250px;
+  }
+  .product-card img {
+    height: 160px;
+  }
+  .shop-content.grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* =========================
+   Mobile Tweaks
+   ========================= */
+@media (max-width: 600px) {
+  .product-card,
+  .item-style {
+    height: auto;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .product-card img,
+  .image-box img {
+    height: 140px;
+    object-fit: cover;
+  }
+  .shop-content.grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .back-home-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   Responsive Typography
+   ========================= */
+.caption {
+  font-size: clamp(0.9rem, 3vw, 1.25rem);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* =========================
+   Back to Home Button
+   ========================= */
+.back-home-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.back-home-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* =========================
+   Product Name Fix
+   ========================= */
+/* Force only product names to white */
+.caption,
+.product-link .caption,
+.modal-content .caption {
+  color: #ffffff !important;
+}
+
+/* =========================
+   Page Header Accent
+   ========================= */
+.shop-header h1 {
+  color: var(--accent);   /* matches price color */
+  font-weight: bold;
+}

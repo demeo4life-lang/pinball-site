@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout – Pinball Trading Co</title>
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="shop-navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Checkout Content -->
+  <main class="shop-layout">
+    <section class="shop-content">
+      <h1>Checkout</h1>
+      <p class="tagline">Review your order and enter your details below.</p>
+
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <ul id="checkout-items">
+          <!-- Items will be injected here by JS -->
+        </ul>
+        <p id="checkout-total"><strong>Total:</strong> $0.00</p>
+      </div>
+
+      <!-- Customer Details -->
+      <div class="customer-details">
+        <h2>Your Details</h2>
+        <form id="checkout-form">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="address">Shipping Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+
+          <button type="submit" class="checkout-cart">Place Order</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="shop-footer">
+    <p>© 2025 Pinball Trading Co – All Rights Reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/checkout.js"></script>
+  <!-- Custom Order Confirmation Modal -->
+<div id="order-modal" class="modal">
+  <div class="modal-content">
+    <h2>Order Confirmed!</h2>
+    <p>Thank you for your purchase. Your order is being processed.</p>
+    <button id="close-modal">Close</button>
+  </div>
+</div>
+</body>
+</html>

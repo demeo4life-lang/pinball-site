@@ -7,49 +7,175 @@
   <link rel="stylesheet" href="shop.css" />
 </head>
 <body>
-  <nav class="shop-navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">Pinball Machines</a></li>
-      <li><a href="#">Arcade Cabinets</a></li>
-      <li><a href="#">Claw Machines</a></li>
-      <li><a href="#">Chocolate Machines</a></li>
-      <li><a href="#">Contact</a></li>
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation">
+    <div class="logo">Arcade Square</div>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" role="menubar">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="shop.html" target="_blank" rel="noopener noreferrer">Shop</a></li>
     </ul>
   </nav>
 
-  <main class="shop-layout">
-    <aside class="shop-sidebar">
-      <h3>Categories</h3>
-      <ul>
-        <li><a href="#">Pinball Machines</a></li>
-        <li><a href="#">Virtual Pinball</a></li>
-        <li><a href="#">Retro Arcade</a></li>
-        <li><a href="#">Hire & Events</a></li>
-      </ul>
-    </aside>
+  <!-- Product layout -->
+  <main class="product-layout">
+    <section class="product-hero">
+      <!-- Media gallery -->
+      <div class="media-column">
+        <div class="hero-image">
+          <img src="images/indiana-pinball3.png" alt="Indiana Jones Pinball Machine" />
+        </div>
+        <div class="thumbs">
+          <button class="thumb active" aria-label="View main image">
+            <img src="images/indiana-pinball.png" alt="Indiana Jones Pinball" />
+          </button>
+          <button class="thumb" aria-label="View side image">
+            <img src="images/indiana-pinball1.png" alt="Indiana Jones Machine" />
+          </button>
+          <button class="thumb" aria-label="View backglass image">
+            <img src="images/indiana-pinball4.png" alt="Indiana Jones Pinball1 Machine" />
+          </button>
+        </div>
+      </div>
 
-    <section class="shop-content">
-      <img src="images/pinball-master.png" alt="Pinball Master Machine" class="product-img" />
-      <h1>Pinball Master – Premium Gen 2</h1>
-      <p class="price">$5,900.00</p>
-      <p class="tagline">Zip it now, pay later – Zip</p>
-      <p class="description">Get whip cracking with this action adventure pinball machine! Inspired by the legendary Indiana Jones cabinet, this Gen 2 virtual machine features over 1300 tables, cinematic sound, and a full-size cabinet with 3-screen setup.</p>
+      <!-- Product info -->
+      <div class="info-column">
+        <h1 class="product-title">Pinball Master – Premium Gen 2</h1>
+        <h2 class="price">$5,900.00</h2>
+        <p class="availability">Please confirm availability before ordering.</p>
 
-      <ul class="features">
-        <li>49″ Playfield + 32″ Backglass + 16″ DMD</li>
-        <li>Analog plunger and tilt sensors</li>
-        <li>LED buttons, stereo sound, 10″ subwoofer</li>
-        <li>Over 1300 tables + 1000 jukebox songs</li>
-        <li>24-month back-to-base warranty</li>
-      </ul>
+        <div class="cta-row">
+          <button class="btn primary add-cart" data-product-id="pinball-master-gen2">Add to Cart</button>
+          <button class="btn ghost" onclick="window.history.back()">Back</button>
+        </div>
 
-      <button class="btn">Add to Cart</button>
+        <div class="payment-note">
+          Zip it now, pay later — Zip. Flexible payment options available.
+        </div>
+
+        <ul class="key-points">
+          <li>49″ Playfield + 32″ Backglass + 16″ DMD</li>
+          <li>Analog plunger and tilt sensors</li>
+          <li>LED buttons, stereo sound, 10″ subwoofer</li>
+          <li>Over 1300 tables + 1000 jukebox songs</li>
+          <li>24‑month back‑to‑base warranty</li>
+        </ul>
+
+        <div class="trust-bar">
+          <div class="trust-item">Secure checkout</div>
+          <div class="trust-item">Warranty included</div>
+          <div class="trust-item">Expert support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs / details -->
+    <section class="product-details">
+      <div class="details-grid">
+        <div class="detail-card">
+          <h3>About this machine</h3>
+          <p>
+            Inspired by legendary Indiana Jones cabinets, the Premium Gen 2 delivers cinematic sound, crisp visuals,
+            and a full‑size three‑screen setup. Built for fast play, rich feedback, and long‑term reliability.
+          </p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Specifications</h3>
+          <ul class="specs">
+            <li><strong>Dimensions:</strong> H 192 cm × W 69 cm × L 140 cm</li>
+            <li><strong>Weight:</strong> ~120 kg</li>
+            <li><strong>Power:</strong> 220–240 V</li>
+            <li><strong>Screens:</strong> 49″ / 32″ / 16″</li>
+            <li><strong>Audio:</strong> Stereo + 10″ subwoofer</li>
+            <li><strong>Inputs:</strong> Analog plunger, tilt sensors</li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h3>Shipping & warranty</h3>
+          <ul class="specs">
+            <li><strong>Shipping:</strong> Crated delivery nationwide</li>
+            <li><strong>Lead time:</strong> 2–4 weeks</li>
+            <li><strong>Warranty:</strong> 24‑month back‑to‑base</li>
+            <li><strong>Support:</strong> Email & phone assistance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related products -->
+    <section class="related-products">
+      <h3>You may also like</h3>
+      <div class="related-grid">
+        <article class="related-item">
+          <a href="elvis-pinball.html" class="related-link">
+            <div class="related-image">
+              <img src="images/elvis-pinball.png" alt="Elvis Pinball" />
+            </div>
+            <h4 class="related-title">Elvis Pinball</h4>
+            <h5 class="related-price">$9,699.00</h5>
+          </a>
+          <button class="btn small add-cart" data-product-id="elvis-pinball">Add to Cart</button>
+        </article>
+
+        <article class="related-item">
+          <a href="monster-bash.html" class="related-link">
+            <div class="related-image">
+              <img src="images/monster-bash-pinball.png" alt="Monster Bash Pinball" />
+            </div>
+            <h4 class="related-title">Monster Bash</h4>
+            <h5 class="related-price">$9,699.00</h5>
+          </a>
+          <button class="btn small add-cart" data-product-id="monster-bash">Add to Cart</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="newsletter">
+      <h3>Subscribe to our newsletter</h3>
+      <form class="newsletter-form" action="https://formspree.io/f/yourFormID" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- Payment methods -->
+    <section id="payment-methods" class="payments">
+      <h3>Payment methods accepted</h3>
+      <div class="payment-methods-wrapper">
+        <img src="images/visa-electron.png" alt="VISA Electron" />
+        <img src="images/bitcoin-logo.png" alt="Bitcoin" />
+        <img src="images/mastercard-logo.png" alt="Mastercard" />
+      </div>
     </section>
   </main>
+  
+  <div class="back-home-container">
+  <a href="index.html" class="back-home-btn">← Back to Home</a>
+</div>
 
+  <!-- Footer -->
   <footer class="shop-footer">
-    <p>© 2025 Pinball Trading Co – All Rights Reserved</p>
+    <p>© 2025 Pinball Trading Co – All rights reserved</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script src="js/woocommerce.js"></script>
+  <script>
+    // Simple gallery swap (no external dependencies)
+    document.querySelectorAll('.thumb').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.thumb').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const src = btn.querySelector('img').getAttribute('src');
+        document.querySelector('.hero-image img').setAttribute('src', src);
+      });
+    });
+  </script>
 </body>
 </html>
